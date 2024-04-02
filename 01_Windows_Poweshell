@@ -1,0 +1,89 @@
+Which program starts with every CMD and PowerShell instance in Windows 7 and later?
+Research: https://devblogs.microsoft.com/commandline/windows-command-line-inside-the-windows-console/
+      conhost.exe
+
+What Windows 10 feature supports installing Linux subsystem?
+Research: https://learn.microsoft.com/en-us/windows/wsl/about
+      Windows Subsystem for Linux (WSL) 
+                  is a feature of Windows that allows you to run a Linux environment 
+                  on your Windows machine, without the need for a separate virtual machine or dual booting.
+
+Which Windows feature can be used to interact with any CLI on the Windows system concurrently using multiple tabs?
+Research: https://learn.microsoft.com/en-us/windows/terminal/
+      Windows Terminal      
+
+What was the default shell (command line) of Windows versions Windows 2000 through Windows 8.1?
+Research: https://learn.microsoft.com/en-us/windows-hardware/customize/enterprise/shell-launcher
+    cmd.exe
+
+What data type do all cmd.exe commands return?
+Research: https://en.wikipedia.org/wiki/Comparison_of_command_shells (Hint: What data type is "text"?)
+    strings
+
+
+What framework is PowerShell built on?
+Research: https://en.wikipedia.org/wiki/.NET
+      .NET
+
+
+"What will all of the below give you?
+(get-host).version
+$host.version
+$psversiontable.psversion"
+Research: https://devblogs.microsoft.com/scripting/powertip-check-version-of-powershell/
+        powershell version
+
+
+After PowerShell Core is installed what CLI command launches it?
+Research: https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.2
+      pwsh
+
+"After PowerShell Core is installed you can still run the built in version of PowerShell side-by-side. What CLI command will launch the built in version?"
+Research: Primer_CLI_9 https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/powershell
+        powershell
+
+CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
+
+What syntax do PowerShell cmdlets follow?
+verb-noun
+
+What PS command will list all PowerShell cmdlets?
+Get-Command
+
+What PowerShell command will list all verbs?
+Get-Verb
+
+BASH commands output strings. PowerShell commands output what data type?
+objects
+
+All PowerShell objects are comprised of what two things?
+properties, methods
+
+What command will list all things that make up a PowerShell object?
+get-member
+
+What PowerShell command will list PowerShell aliases?
+get-alias
+
+What PowerShell command lists all of the contents of a directory?
+Get-ChildItem
+
+What is the basic cmdlet that displays help about Windows Powershell cmdlets and concepts?
+Get-help
+
+PowerShell "help files" don't show the entire help file with a basic command. What switch option shows the entire help file?
+-full
+
+What PowerShell command will update the PowerShell "help files" to the latest version?
+update-help
+
+What help switch will show you the "help files" on Microsoft's website, in your default browser?
+-online
+
+What command will start the Chrome browser on your machine?
+start-process chrome
+
+What command using a PS Method will stop chrome?
+Flag is the full command.
