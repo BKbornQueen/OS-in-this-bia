@@ -93,6 +93,13 @@ What PowerShell command (without using a method) will stop the Chrome process?
 
 PowerShell doesn't have a native cmdlet that will give you processor information (such as get-processor or get-cpu).
 Knowing this information might be necessary. What command would give you information about the system's processor?
-Flag is the full command
+Flag is the full command/////////////////////////////////////
+///////////////////////////////
+
+
+What PowerShell command will read a text file?
+get-content
+
+
 
 
