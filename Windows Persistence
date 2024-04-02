@@ -1,1 +1,19 @@
+Powershell Profiles
+    Order of Precedence 
+      All Users, All Hosts
+      All Users, Current Host
+      Current User, All Hosts
+      Current User, Current Host
 
+
+Test for ps profiles
+  test-path -path $profile.<precedenceCategory>
+  test-path -path $profile.currentusercurrenthost
+  test-path -path $profile.currentuserallhosts
+  test-path -path $profile.allusersallhosts
+  test-path -path $profile.alluserscurrenthost
+
+$profile
+  where the profile ofthe user is stored that is in use for this session of powershell
+  what user that you are currently logged into or using, where is the profile located
+  current user current host
