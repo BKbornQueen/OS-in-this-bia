@@ -88,4 +88,11 @@ start-process chrome
 What command using a PS Method will stop chrome? Flag is the full command.
 (get-process chrome*).kill()
 
+What PowerShell command (without using a method) will stop the Chrome process?
+ Stop-process -name chrome
+
+PowerShell doesn't have a native cmdlet that will give you processor information (such as get-processor or get-cpu).
+Knowing this information might be necessary. What command would give you information about the system's processor?
+Flag is the full command
+
 
