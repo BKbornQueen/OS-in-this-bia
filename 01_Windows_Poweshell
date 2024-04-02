@@ -85,5 +85,7 @@ What help switch will show you the "help files" on Microsoft's website, in your 
 What command will start the Chrome browser on your machine?
 start-process chrome
 
-What command using a PS Method will stop chrome?
-Flag is the full command.
+What command using a PS Method will stop chrome? Flag is the full command.
+(get-process chrome*).kill()
+
+
