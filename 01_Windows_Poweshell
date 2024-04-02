@@ -100,6 +100,54 @@ Flag is the full command/////////////////////////////////////
 What PowerShell command will read a text file?
 get-content
 
+What PowerShell command will allow for counting lines in a file, averaging numbers, and summing numbers?
+
+What PowerShell command searches for text patterns in a string?
+
+Users' files are stored in their corresponding home directory. 
+What is the literal path to all home directories on a Windows 10 system?
+
+How many properties are available for the get-process cmdlet? Note: Property values only
+
+How many aliases does PowerShell have for listing the contents of a directory?
+
+When requesting the help file for the get-process cmdlet, what full command is the 9th example given?
+
+To complete this challenge, find the description of the Lego Land service.
+Reminder: All challenges are done using the file-server.
+
+In the CTF folder on the CTF User's Desktop, count the number of words in words2.txt.
+
+Count the number of files in the Videos folder in the CTF user's home directory.
+
+Find the only line that makes the two files in the CTF user's Downloads folder different.
+Hint The flag is the string (not line number).
+
+The password is the 21st line from the top, in ASCII alphabetically-sorted, descending order of the words.txt file.
+**Note: File Location - C:\Users\CTF\Desktop\CTF
+
+Count the number of unique words in words.txt **Note: File Location - C:\Users\CTF\Desktop\CTF
+
+How many methods are available for the get-process cmdlet? Machine: Admin_Station
+
+Count the number of folders in the Music folder in the CTF user’s profile.
+
+Count the number of times, case-insensitive, gaab is listed in words.txt **Note: File Location - C:\Users\CTF\Desktop\CTF
+
+Count the number of words, case-insensitive, with either a or z in a word, in the words.txt file 
+Note: File Location - C:\Users\CTF\Desktop\CTF
+
+Count the number of lines, case-insensitive, that az appears in the words.txt file
+Note: File Location - C:\Users\CTF\Desktop\CTF
+
+Use a PowerShell loop to unzip the Omega file 1,000 times and read what is inside.
+Note: Make sure you back up the .zip file to a different directory before attempting this challenge.
+
+Count the number of words in words.txt that meet the following criteria:
+      a appears at least twice consecutively
+      and is followed immediately by any of the letters a through g
+      Note: File Location - C:\Users\CTF\Desktop\CTF
+      Example: aac...aaa...
 
 
 
