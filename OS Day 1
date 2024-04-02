@@ -92,8 +92,14 @@ Pull only the methods for cmdlet Get-Process
 get-process | get-member | where-object {$_.membertype -match "method"}
   iterates through like an array
 
+-lt
+-le
+-gt
+-ge
 -match
   comparison operator 
+* 
+  requires -like
 $_
   pipeline variable
   iterate throught the ouput
@@ -146,3 +152,30 @@ remove-item does_not_exit.txt
 add to a file 
   123 > does_not_exist.txt
   just add a string
+
+Get-Variable
+  displays default variables
+  and volatile user-defined variables
+  and profile assigned user-defined variables
+
+create a variable
+$<variablename> = <cmdlet>
+
+$Today = (Get-Date).DateTime
+  create a date variable
+$Today
+  call the varaible
+remove-variable -name something
+  deletes $something (deletes the variable and its contents)
+
+clear-variable -name today
+  $today is now empty (removes the assigns contents)
+
+get-help about_automatic_variables
+
+update-help
+  update the help document files
+
+execution policy
+Get-executionPolicy
+set-ExecutionPolicy -ExecutionPolicy Unrestricted -scope currentuser
