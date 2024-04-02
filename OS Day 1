@@ -1,1 +1,148 @@
+cybbh os
+vta cybbh 
+xfreerdp /u:student /v:10.50.36.13 /dynamic-resolution +glyph-cache +clipboard
 
+powershell is object oriented
+  the objects have methods and properties assigned/attached to them
+
+Basic Commands
+  Commandlets
+
+Get-host
+pwsh
+    powershell version
+
+history
+    history of commands
+
+Get-Process  
+    list of running processes
+
+Recording/keylogging while using Powershell 
+        Start-Transcript
+          create a Transcripts/keylogging
+        Stop-Transcirpt
+          stops transcript
+            go to file explorer, documents location and open the transcript
+            great for notes and recording all work during a PS session
+
+Methods associated with a commandlet
+    <cmdlet> | Get-Member
+
+Get-Process | Get-Member
+    the methods and properties associated with the CMDLET Get-Process
+
+Get-Process | select-object name,id,starttime
+Get-Process | select name,id,starttime
+    retrieve name id and starttime only for Get-Process
+    to retrieve data otherthan or in different format than default ouput
+    if the item you are filtering/piping on does not exist it will spit out a blank column
+      does not exist gives a blank result
+
+CAT
+CD
+DIR
+VIM
+Get-Content
+    Read a file
+
+Get-Alias
+    to display all aliases within Powershell
+    shows all aliases including user defined aliases
+      user defined aliases must be saved to the ps profile in order to establish persitance
+      otherwise user defined aliases reset and delete themeselves at the close of a PS session
+      only the default aliases remain (built-in)
+Get-Alias <cmdlet>
+    alias to a specified cmdlet
+
+Get-Help <CMDLET>
+    help page for a cmdlet
+
+
+Get-Help <CMDLET> -full
+
+Get-Help <CMDLET> -online
+    opens MS web help page
+
+Get-location
+pwd
+    view current location
+
+whoami
+    what box am I
+
+(get-process).name
+    dot notation retrieve specific parameter
+
+Get-process | select name
+Get-process | select-object name
+
+start a process
+    start-process notepad
+    notepad.exe
+Stop a process
+    Stop-process -name notepad
+    must use -name
+
+Methods
+  things an object can do
+  task an object can perform
+
+Pull only the methods for cmdlet Get-Process
+get-process | get-member | where-object {$_.membertype -match "method"}
+  iterates through like an array
+
+-match
+  comparison operator 
+$_
+  pipeline variable
+  iterate throught the ouput
+
+kill method to manipulate a process
+  Start-Process chrome
+  (get-process chrome*).kill()
+  OR
+  Stop-process -name chrome
+
+
+pipeline variable usage
+  Get-Process | select name,id,path | where {$_.id -lt '1000'}
+      filter for comparison operator less than ID of 1000 for the filtered name,id,path of Get-process
+      you can only filter off something you selected
+          ie if you try to filter for id but you never selected it, an invalid result will be output
+
+Foreach-object
+      iterates using the pipeline, cannot be the first command
+Foreach-item
+      can be the first command
+
+CIM classes
+    Get-CIMclasses *
+
+Get-ciminstance -class win32_bios
+    retrieves bio information
+
+Get-wmiobject -class win32_bios
+  does not work on all newer versions
+  use ciminstance
+
+common parameters
+  air action
+  verbose
+
+remove-item does_not_exist.txt
+  error if not found
+remove-item does_not_exist.txt -erroraction SilentlyContinue
+  to skip the red error lines while iterating through/search of a drive
+
+create a file
+  new-item does_not_exist.txt
+
+remove-item does_not_exit.txt -verbose
+    show prompt that action occurred
+remove-item does_not_exit.txt
+    no completed prompt just returns to next command line
+
+add to a file 
+  123 > does_not_exist.txt
+  just add a string
