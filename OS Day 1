@@ -1,8 +1,22 @@
 Stack number 6
       10.50.35.60
-cybbh os
+http://10.50.22.197:8000/
+JEGL-M-502
+
+M24502
+Password
+
+cybbh os 
+      use range map
+
 vta cybbh 
 xfreerdp /u:student /v:10.50.36.13 /dynamic-resolution +glyph-cache +clipboard
+
+01_Windows_Powershell
+      Flag start7917
+Which program starts with every CMD and PowerShell instance in Windows 7 and later?
+Research: https://devblogs.microsoft.com/commandline/windows-command-line-inside-the-windows-console/
+      conhost.exe
 
 powershell is object oriented
   the objects have methods and properties assigned/attached to them
