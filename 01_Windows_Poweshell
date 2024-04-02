@@ -101,6 +101,7 @@ What PowerShell command will read a text file?
 get-content
 
 What PowerShell command will allow for counting lines in a file, averaging numbers, and summing numbers?
+Get-ChildItem | Measure-Object -Property length -Sum -Average
 
 What PowerShell command searches for text patterns in a string?
 
