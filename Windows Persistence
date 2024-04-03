@@ -17,3 +17,26 @@ $profile
   where the profile ofthe user is stored that is in use for this session of powershell
   what user that you are currently logged into or using, where is the profile located
   current user current host
+
+Registry locations that can be utilized for persistence
+
+Persistence According to MITRE
+
+Boot or Logon Autostart Execution: Registry Run Keys / Startup Folder - MITRE
+Table 6. System-wide and per-user autoruns
+
+HKLM\Software\Microsoft\Windows\CurrentVersion\Run
+
+HKLM\Software\Microsoft\Windows\CurrentVersion\RunOnce
+
+HKU\<SID>\Software\Microsoft\Windows\CurrentVersion\Run
+
+HKU\<SID>\Software\Microsoft\Windows\CurrentVersion\RunOnce
+
+HKLM\SYSTEM\CurrentControlSet\services
+
+HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders
+
+HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders
+
+HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon
