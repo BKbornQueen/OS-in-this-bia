@@ -1,3 +1,4 @@
+https://os.cybbh.io/public/os/latest/004_windows_registry/reg_fg.html#_1_windows_registry_introduction
 Windows Registry
     Heiracrchial Datatbase of windows system configuration
 Hive Keys
@@ -33,6 +34,70 @@ Editing the registry
 Regedit.exe
   Computer\HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
 
-From CLI
+From CLI (cmd.exe run as administrator or sudo to elevated priviledges)
 
 reg_query HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+
+
+Reg.exe help
+
+reg /?                    #Displays help for all of the reg.exe commands
+reg query /?              #Displays help for the `reg query`
+reg add /?                #Displays help for `reg add`
+reg delete /?             #Displays help for `reg delete`
+
+Reg query - Reads keys from specific registry locations
+reg query HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+
+Reg add - Adds keys to specific registry locations
+reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v testme /t REG_SZ /d C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+
+    The /v stands for Value; In this case the name of this Key Value.
+
+    The /t stands for Type; Types can be any of the Data Types that we went over earlier.
+
+    The /d stands for Data; Is what is the actual Data or in this case a command to open a file every time the system is ran.
+
+Reg delete - Deletes Keys
+reg delete HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v testme
+
+Powershell
+Registry Manipulation with PowerShell
+
+
+    Certain Root Hives are loaded automatically into PSDrives (HKLM: and HKCU:); 
+    navigation of the registry is very similar to folder⇒file
+
+Minimum commands to know
+
+    Query
+        Get-ChildItem cmdlet gets the items in one or more specified locations.
+		Get-ChildItem HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run 
+			The returns nothing because it is listing the sub keys of \Run.
+			Run has no sub keys, only values.
+		Get-ChildItem HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\
+			Returns sub keys of \CurrentVersion
+        Get-ItemProperty cmdlet gets the items in one or more specified locations.
+        Get-Item cmdlet gets the item at the specified location. 
+		It doesn’t get the contents of the item at the location 
+		unless you use a wildcard character (*) to request all the contents of the item.
+
+    Modify
+        Set-ItemProperty cmdlet changes the value of the property of the specified item. 
+	example, changing setting to :true or :false.
+        Remove-ItemProperty cmdlet to delete registry values and the data that they store.
+
+    Create
+        New-Item cmdlet creates a new item and sets its value. In the registry:
+	New-Item creates registry keys and entries.
+        New-Itemproperty cmdlet creates a new property for a specified item and sets its value. 
+	Typically, this cmdlet is used to create new registry values, 
+	because registry values are properties of a registry key item.
+
+PS Drives
+	allow interaction with the registry
+	Get-PSDrive
+		The PSDrive must exist for the item in order to use PSDrive
+		ie no PSDrive listed for HKU then PSDrive for HKU will not be available
+
+
