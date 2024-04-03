@@ -1,0 +1,38 @@
+Windows Registry
+    Heiracrchial Datatbase of windows system configuration
+Hive Keys
+  
+
+There are five Registry Hives
+    HKEY_LOCAL_MACHINE
+      HKEY_CURRENT_CONFIG
+              Start i[
+      HKEY_CLASSES_ROOT
+              alias pointer/symbolic link to dictate how software will be classified(extensions)
+    HKEY_USERS
+      HKEY_CURRENT_USERS
+      
+
+SID
+  users begin at 1000
+Priviledged Users
+    500 Admin
+
+Editing the registry
+  Regedit.exe
+      Using Regedit.exe to query the Registry
+	Click on the search bar and type in regedit.exe
+	If prompted by UAC, click yes
+	Click on the drop down for HKEY_CURRENT_USER
+	Click the drop down for Software
+	Click the drop down for Microsoft
+	Click the drop down for Windows
+	Click the drop down for CurrentVersion
+	Click the drop down for Run
+	We have successfully queried a key using regedit.exe
+Regedit.exe
+  Computer\HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+
+From CLI
+
+reg_query HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
