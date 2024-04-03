@@ -1,0 +1,65 @@
+What Windows registry path is the Volatile Hive?
+Research: https://www.oreilly.com/library/view/managing-the-windows/1565929438/ch11s02.html
+HKLM\Hardware
+
+What registry key creates the Wow6432Node to represent 32-bit applications that run on a 64-bit version of Windows?
+Research: https://learn.microsoft.com/en-us/troubleshoot/windows-client/application-management/wow6432node-registry-key-present-32-bit-machine
+HKEY_LOCAL_MACHINE\SOFTWARE
+
+In what registry path are the BOOT_START drivers located?
+Research: https://learn.microsoft.com/en-us/windows-hardware/drivers/install/hklm-system-currentcontrolset-services-registry-tree
+HKLM\SYSTEM\CurrentControlSet\Services
+
+What start value do BOOT_START drivers have in the registry?
+Research: https://learn.microsoft.com/en-us/windows-hardware/drivers/install/specifying-driver-load-order
+0x0
+
+
+During kernel initialization, what registry location is read containing all SYSTEM_START drivers?
+Research: https://learn.microsoft.com/en-us/windows-hardware/drivers/install/hklm-system-currentcontrolset-services-registry-tree
+HKLM\SYSTEM\CurrentControlSet\Services
+
+
+SERVICE_AUTO_START drivers and services are loaded after kernel initialization. What start value do they have in the registry?
+Research: https://learn.microsoft.com/en-us/windows-hardware/drivers/install/specifying-driver-load-order
+0x2
+
+
+What start value do SERVICE_DEMAND_START drivers and services have in the registry?
+Research: https://learn.microsoft.com/en-us/windows-hardware/drivers/install/specifying-driver-load-order
+0x3
+
+
+When accessing a remote registry which are the only 2 accessible HKEYs?
+SYNTAX Hive, Hive
+Research: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/reg-load
+HKLM, HKU
+
+
+What PowerShell cmdlet will list currently mapped drives?
+Research: https://learn.microsoft.com/en-us/powershell/scripting/samples/managing-windows-powershell-drives?view=powershell-7.2
+Get-PSDrive
+
+What is the native Windows GUI tool for managing the registry?
+Research: https://support.microsoft.com/en-us/windows/how-to-open-registry-editor-in-windows-10-deab38e6-91d6-e0aa-4b7c-8878d9e07b11
+Regedit.exe
+
+What registry hive contains all machine settings?
+HKLM - HKEY_LOCAL_MACHINE - Hive Key Local Machine
+
+
+What registry hive contains all user settings?
+HKU - HKEY_USERS - Hive Key Users
+
+What registry hive contains only the currently logged-in user's settings?
+HKCU - HKEY_CURRENT_USERS - Hive Key Current Users
+
+
+The HKEY_CURRENT_USER registry hive is a symbolic link to another registry subkey. What is the subkey that it is linked to?
+Flag format: HIVE\SID.........................
+Reminder: All challenges are done using Workstation2.
+
+
+
+
+
