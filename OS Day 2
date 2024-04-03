@@ -113,4 +113,18 @@ cd <drivename>:
 
 
 
+ADS
+cannot be disabled
+does not alter the md5sum
+used as method hide data
+Reveal ADS
+	dir /R
+
+Powershell
+Get-FileHash -Algorithm MD5 .\<filename.extension>
+
+CMD.exe
+MD5 
+
+
 
