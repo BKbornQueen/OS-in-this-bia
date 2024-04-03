@@ -100,4 +100,17 @@ PS Drives
 		The PSDrive must exist for the item in order to use PSDrive
 		ie no PSDrive listed for HKU then PSDrive for HKU will not be available
 
+New-PSDrive -Name HKU -PSProvider Registry -Root HKEY_USERS
+	if there is an error or typo  it will add the dirve anyway
+		however it will be an empty or dead link
+		an error will be produced if you attempt to call or query the drive
+	symbolic link a mapping to a drive
+		allows interaction as if it is apart of the filesystem
+	the drive must exist
+move to a PSDrive
+dir <drivename>:
+cd <drivename>:
+
+
+
 
