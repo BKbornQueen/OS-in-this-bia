@@ -9,12 +9,23 @@ ls-lh
 What character will pipe the standard output from
 echo "I’m a plumber"
 to another command, as standard input?
+|
+What argument/switch option, when used with man, will search the short descriptions and man-page-names for a keyword that you provide?
+The flag is the complete command, with argument/switch.
+man -k
+What is the absolute path to the root directory?
+/
+What is the absolute path to the default location for configuration files?
+/etc
+What is the directory that contains executable programs (binaries) which are needed in single user mode, to bring the system up or to repair it?
+/bin
+What is the absolute path to the directory which contains non-essential binaries that are accessible by standard users as well as root?
+/usr/bin
+An absolute path to a directory which contains binaries only accessible by the root user, or users in the root group.
+/sbin
 
-
-
-
-
-
+What is the absolute path for the binary cat man-page?
+Research: https://man7.org/linux/man-pages/man1/man.1.html
 
 
 
