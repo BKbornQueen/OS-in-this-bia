@@ -6,7 +6,9 @@ ls-lh
   This command will show you the file sizes in human readable format. 
   Size of the file is very difficult to read when displayed in terms of byte. 
   The (ls -lh)command will give you the data in terms of Mb, Gb, Tb, etc.
-
+What character will pipe the standard output from
+echo "I’m a plumber"
+to another command, as standard input?
 
 
 
