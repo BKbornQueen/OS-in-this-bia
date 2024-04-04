@@ -1,0 +1,30 @@
+suspicious ports 
+  sequential numbers ie 1234
+  repeated numbers ie 4444 8888
+
+pivot to the port opening executeable
+nestat -ano
+sudo netstat -ltup
+  get the pid for this connection
+from suspicious port to what process spawned that port
+shows process that spawned the suspicious port
+
+permission bits
+rwx
+- file
+d directory
+user - group - other
+
+to verify if variable exists or to see what is inside a variable that does exist
+echo $variable name
+ceate a variable in linux no $ needed
+a="100"
+to call a variable in linux use the dollar sign
+echo $a
+
+directiories=$(ls /)
+echo $directiories
+
+stdout to create a file
+stdout
+echo $directories 1> thisisanewfile
