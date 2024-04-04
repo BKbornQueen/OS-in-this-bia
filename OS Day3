@@ -1,3 +1,37 @@
+Logging onto the linux Box
+
+SSH Credentials 
+garviel : luna
+10.6.0.6      Terra                   SSH to Private IP
+    Logon Steps
+    Open a Terminal station on your local Machine
+    RDP to the external admin box 10.50.35.60
+    Enter the login credentials for the admin box
+      student : password
+    Open a CLI (cmd.exe)
+      ssh onto the network stack linux machine
+      ssh garviel@10.6.0.6
+      password: luna
+    Perform Situational Awareness
+      pwd
+      Whoami
+      w
+      who
+      hostname
+      uname -a 
+      ip addr
+      ifconfig
+      ip neigh
+      arp
+      ip route
+      route
+      ss
+      netstat
+      nft list tables
+      iptables -L
+      sudo -l
+
+____________________________________________
 suspicious ports 
   sequential numbers ie 1234
   repeated numbers ie 4444 8888
