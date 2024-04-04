@@ -1,0 +1,54 @@
+What command lists the contents of directories in Linux/Unix systems?
+ls
+For the ls command, what arguments, or switch options, will allow you to print human-readable file sizes in a long-list format?
+The flag is entire command, including arguments
+ls-lh
+  This command will show you the file sizes in human readable format. 
+  Size of the file is very difficult to read when displayed in terms of byte. 
+  The (ls -lh)command will give you the data in terms of Mb, Gb, Tb, etc.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+___________________________________________________________________________________________________
+Linux Basics Reformat4
+0
+This challenge is worth 0 POINTS, and should only be attempted after all other challenges that are open to you, are completed!
+
+File: /home/garviel/NMAP_all_hosts.txt
+
+Format the file into the output displayed below using native Linux binaries like awk.
+
+
+Service: ident Count: 1
+==============================
+192.168.33.236
+
+Service: IIS Count: 3
+==============================
+192.168.33.205
+192.168.33.227
+192.168.33.229
+
+--TRIMMED--
+Present the script used to the instructor for credit when complete. Be prepared to explain the code.
+
+HINT: awk is a powerful text manipulation scripting language. It is a bit challenging to learn. Use the tutorials below to get started.
+
+Awk - A Tutorial and Introduction - by Bruce Barnett
+
+The GNU Awk User’s Guide
+
