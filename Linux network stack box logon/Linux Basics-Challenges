@@ -90,6 +90,26 @@ cat 'yourfile' | openssl aes-128-cbc > 'encrypted file'
 To decode: First, you have to remember your password which you used to encode, then:
 
 cat 'encrypted file' | openssl enc -d -aes-128-cbc -k 'Your password' > 'decrypted file'
+_________________________________________________________________________________________________
+Search the user home directories to find the file with the second-most lines in it. 
+The flag is the number of lines in the file.
+Hint: Exclude the VDI file!
+find /home/garviel -type f -exec wc -l {} + | sort -rn
+find <filepath> -type f -exec wc -l {} + | sort -rn
+Answer:20k
+    find : search for files on the path you want. If you don't want it recursive, and your find implementation supports it, you should add -maxdepth 1 just before the -exec option.
+    exec : tells the command to execute wc -l on every file.
+    sort -rn : sort the results numerically in reverse order. From greater to lower.
+
+(that assumes file names don't contain newline characters).
+
+
+Read the file that contains the user database for the machine. Identify a strange comment.
+Answer:Traitor
+5th column/section GECOS is for comments
+
+Identify all members of the lodge group. List their names in alphabetical order with a comma in between each name.
+Flag Format: name,name,name
 
 ___________________________________________________________________________________________________
 https://stackoverflow.com/questions/48446896/do-cat-foo-txt-my-cmd-and-my-cmd-foo-txt-accomplish-the-same-thing
