@@ -30,3 +30,24 @@ garviel : luna
       nft list tables
       iptables -L
       sudo -l
+__________________________________________________
+Linux Situational Awareness
+
+
+After first obtaining access to a system an operator must gather as much information about their environment as possible, this is referred to as situational awareness. 
+pwd is just one command of many on Linux which can provide us some insight.
+
+Other commands to help gain situational awareness:
+    1. hostname or uname -a displays the name of the host you are currently on.
+    2. whoami shows the user you are currently logged in as 
+       (useful after gaining access through service exploitation).
+    3. w or who shows who else is logged in.
+    4. ip addr or ifconfig displays network interfaces 
+       and configured IP addresses.
+    5. ip neigh or arp displays MAC addresses of devices observed on the network.
+    6. ip route or route shows where packets will be routed, 
+       for a particular destination address.
+    7. ss or netstat will show network connections or listening ports
+    8. nft list tables or iptables -L to view firewall rules.
+    9. sudo -l displays commands the user may run with elevated permissions.
+    
