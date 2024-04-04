@@ -51,3 +51,6 @@ Other commands to help gain situational awareness:
     8. nft list tables or iptables -L to view firewall rules.
     9. sudo -l displays commands the user may run with elevated permissions.
     
+****Depending on the age and distribution of Linux some commands may not be installed 
+or require privilege escalation through sudo to run. 
+____________________________________________________________________________________
