@@ -28,3 +28,42 @@ echo $directiories
 stdout to create a file
 stdout
 echo $directories 1> thisisanewfile
+
+cd ~
+wwrite files from the users home ~ directory if writing in root / does not work aka no permission to write in root
+
+cat thisnewfile
+
+demonstrating redirection
+ls bacon
+ls bacon 2> errorfile
+cat errorile
+
+____
+piping
+ls -Rlisa /etc | grep syslog
+
+taking all of the output of etc and recursivelive searching/grepping to find syslog
+
+______
+loops with command substittuion
+object=$(ls -d /etc/*)
+echo $objects
+____
+for loop example
+for item in $objects; do echo $item; done
+_____
+for object in $objects; do if [ -d $object ]; then echo "$object is a directory"; else echo "object is a file" ; fi  ; done
+_____
+filesystem
+users /home
+configuration files /etc or /var -----chron files
+variable data /var
+binaries /bin
+_____
+id
+find uid, gid and groups
+______
+sudo cat /etc/passwd
+sudo cat /etc/passwd | grep garviel
+sudo cat /etc/passwd | grep <username>
