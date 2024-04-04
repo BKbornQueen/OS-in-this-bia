@@ -31,7 +31,13 @@ garviel : luna
       iptables -L
       sudo -l
 ________________________________________________________________________
+find the path
+which cat
 
+location of the man pages
+man -w <command>
+OR
+whereis cat
 
 ____________________________________________
 suspicious ports 
@@ -103,3 +109,25 @@ ______
 sudo cat /etc/passwd
 sudo cat /etc/passwd | grep garviel
 sudo cat /etc/passwd | grep <username>
+
+________________________________________________________________________________
+ 	
+
+Linux Commands
+
+Files
+	
+
+tar · pv · cat · tac · chmod · grep ·  diff · sed · ar · man · pushd · popd · fsck · testdisk · seq · fd · pandoc · cd · $PATH · awk · join · jq · fold · uniq · journalctl · tail · stat · ls · fstab · echo · less · chgrp · chown · rev · look · strings · type · rename · zip · unzip · mount · umount · install · fdisk · mkfs · rm · rmdir · rsync · df · gpg · vi · nano · mkdir · du · ln · patch · convert · rclone · shred · srm · scp · gzip · chattr · cut · find · umask · wc · tr
+	
+
+Processes
+	
+
+alias · screen · top · nice · renice · progress · strace · systemd · tmux · chsh · history · at · batch · free · which · dmesg · chfn · usermod · ps · chroot · xargs · tty · pinky · lsof · vmstat · timeout · wall · yes · kill · sleep · sudo · su · time · groupadd · usermod · groups · lshw · shutdown · reboot · halt · poweroff · passwd · lscpu · crontab · date · bg · fg · pidof · nohup · pmap
+	
+
+Networking
+	
+
+netstat · ping · traceroute · ip · ss · whois · fail2ban · bmon · dig · finger · nmap · ftp · curl · wget · who · whoami · w · iptables · ssh-keygen · ufw · arping · firewalld 
