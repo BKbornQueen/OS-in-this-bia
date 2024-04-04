@@ -26,16 +26,76 @@ An absolute path to a directory which contains binaries only accessible by the r
 
 What is the absolute path for the binary cat man-page?
 Research: https://man7.org/linux/man-pages/man1/man.1.html
+  find absolute path of a command
+  which cat
+  
+  location of the man pages
+  man -w <command>
+  /usr/share/man/man1/cat.1.gz
+  
+  All absolute path location for a command
+  whereis <command>
+  whereis cat
+  cat: /bin/cat /usr/share/man/man1/cat.1.gz
+echo <string> | sha512sum
+
+Search the man pages for the keyword digest. Then, use one of the binaries listed to hash the string OneWayBestWay using the largest sha hash available.
+The resulting hash is the flag.
+man -k digest
+echo OneWayBestWay | sha512sum
+
+
+Use File: /home/garviel/Encrypted
+This file contains encrypted contents. Identify its file type, then decode its contents.
+Hint: Use OpenSSL
+Research: https://www.openssl.org/docs/man1.1.1/man1/enc.html
+Reminder: All challenges are done using the Terra box.
+Answer: DeCrypt
+Methodology:
+1) Determine file type
+  file * <filenameNoExtension>
+    if file is a zipped archive file or Zip Archive Data
+    it must be unzipped
+    cannot decrypt a zipped file, the file must be unzipped
+2) Unzip a file No options
+  unzip <filenameNoExtension>
+    OutputGenerated:
+    Archive: Encrypted
+      extracting: cipher
+      extracting: symmetric
+3) Cat the contents of the file to View contents
+  cat <extractedContents>
+      cat cipher
+          Salted__f;M3~4fB  ////<ThisIsTheEncryptedContentsExtractedFromTheZippedFile>////
+                            ////< file to be decrypted>/////
+      cat symmetric
+          AES128Key         ////<ThisIsThePlainTextPassKeyOrPasswordExtractedFromTheZippedFile>///
+                          ////<Identifies encoding/encryption type///
+4) Use Openssl to decrypt
+Openssl <command> <filepath>
+openssl enc -aes128  -d -in cipher -salt -k AES128Key
+openssl <command(encoding)> <option(encodingSeries/type)> <action> <to> <what> <what'sType> <passkeyoption> <passkey>
+openssl <command> <option> <
+To Encrypt:
+openssl enc -aes-256-cbc -in file.txt -out file.enc
+To Decrypt:
+openssl enc -d -aes-256-cbc -in file.enc -out file.dec
 
 
 
+To encode:
 
+cat 'yourfile' | openssl aes-128-cbc > 'encrypted file'
 
+To decode: First, you have to remember your password which you used to encode, then:
 
+cat 'encrypted file' | openssl enc -d -aes-128-cbc -k 'Your password' > 'decrypted file'
 
+___________________________________________________________________________________________________
+https://stackoverflow.com/questions/48446896/do-cat-foo-txt-my-cmd-and-my-cmd-foo-txt-accomplish-the-same-thing
 
-
-
+pipe vs stdin vs stdout
+piping vs redirection
 ___________________________________________________________________________________________________
 Linux Basics Reformat4
 0
