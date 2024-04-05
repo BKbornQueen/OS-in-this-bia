@@ -29,14 +29,35 @@ KDC
 logon
 hybrid
 monolithic
+6.1
+10.0
+systeminfo | findstr /B/C:"OS Version" /B/C:"BIOS Version"
+system
+4
+smss.exe
+0
+lsass.exe
+services.exe
+winlogon
+userinit.exe
+BIOS
+hiberfil.sys
+winresume.exe
+1RF5Zgf9P 
+76Drp6hB
 
 
 
-
-
-
+  bcdedit /deletvaule {current} safeboot  /// needs to be deleted bc it is not native to windows;
+  userdefined aka nefarious
+  bcdedit /set {current} safebootalternateshell "No"
+  shutdown /r
+      {the name listed next to the description}
 ____________
-
+system management.dll
+6
+how do i fix this flag 1RF5Zgf9P
+shutdown -a
 winload.exe
 4
 find
@@ -44,4 +65,6 @@ findstr
 systeminfo
 sc query
   running services
+Chkdsk 
+  diagnose disk issues
 ________________
