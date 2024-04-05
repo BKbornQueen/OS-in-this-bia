@@ -1,0 +1,47 @@
+sector
+partition
+volume
+diskpart
+HAL
+Executive
+driver
+uefi and bios
+Ntoskrnl.exe
+bootmgr and winload.exe
+bootmgr
+BCD
+TPM (Trusted Platform Module)
+winload.exe
+Ntoskrnl.exe
+0x0
+smss.exe
+session 0
+Secure Boot
+Hibernate
+HKLM\Software\Microsoft\Windows\CurrentVersion\RunServices
+Local Domain
+userinit.exe
+winlogon.exe
+lsass.exe
+last known good configuration
+kerberos
+KDC
+logon
+hybrid
+monolithic
+
+
+
+
+
+
+____________
+
+winload.exe
+4
+find
+findstr
+systeminfo
+sc query
+  running services
+________________
