@@ -1,0 +1,37 @@
+hash of the hex dump is a bit for bit dd copy
+!!
+  run as sudo
+  run the previous command
+
+Grub loads linux kernel
+  
+On BIOS Systems using MBR
+
+    Stage 1 : boot.img located in the first 440 bytes of the MBR loads…​
+
+    Stage 1.5 : core.img located in the MBR between the bootstrap and first partition. It loads…​
+
+    Stage 2 : /boot/grub/i386-pc/normal.mod which loads the grub menu and then reads
+
+        /boot/grub/grub.cfg Which displays a list of Linux kernels available to load on the system
+
+
+On UEFI Systems using GPT
+
+    Stage 1 : grubx64.efi Located on an EFI partition or in /boot loads…​
+
+    Stage 2 : /boot/grub/x86_64-efi/normal.mod
+
+        /boot/grub/grub.cfg Which displays a list of Linux kernels available to load on the system
+sysv /etc/init 
+run level 3 contents
+                  init tab -- persistence
+                  rc-- persistence
+
+systemD 
+targets
+symbolic links
+
+                  /etc/environment  ---- persistence
+                  /etc/profile --- persistence
+                  .bash_profile .=hidden
