@@ -18,7 +18,44 @@ TCPView
 Accesschk
 handle
 downloads
-xxx
+C:\Users\Public\Downloads
 LoadOrder
 MpsSvc
 ListDLLs 
+
+Windows Hidden Processes
+____________________ 
+cd to directory C:\Users\Public\Downloads
+  Dir
+    libmingwex-0.dll
+      scvhost.exe
+      29 Hmmmm.txt
+__________________
+Use Sysinternals tool Process Explore to investigate abnormal processes
+______________------_____________
+TCPview
+  to view flags
+  to view suspicious ports
+  active connections
+  running processes/executables
+Determine what is sending out a SYN_SENT message. 
+    what is the ProcessName with a state of SYN_SENT
+    State=process sending out a message
+The flag is the name of the executable.
+
+_____________________
+Find obfuscated processes  hidden within the registry keys
+  Use Sysinternals tool Autoruns  
+  Autoruns
+    Visually Navigate to the Desired "Autoruns Entry"
+        entries are ordered based on runkey type
+        ie Processes can be found in services
+        ie persistence can be found in run, runonce, taskscheduler
+          for HKLM\Software... or HKCU...
+    Right click
+    Jump to entry
+_________________
+reading a file in windows
+type
+___________________________
+sysinternals
