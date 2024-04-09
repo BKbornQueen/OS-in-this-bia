@@ -35,3 +35,7 @@ symbolic links
                   /etc/environment  ---- persistence
                   /etc/profile --- persistence
                   .bash_profile .=hidden
+show the runlevel
+  /sbin/runlevel
+
+view the sbin
