@@ -1,0 +1,21 @@
+ps -elf --forest
+  show child processes or forked processes
+
+sticky bit only owner can delete file ie file protection
+in other positions rwx
+  allows special permissions
+  elevate to root
+  pkill <processname> --signal 9
+
+
+
+    Persistence - Daemons are services that should run for duration of system operation, since init is parent, would require shutdown for parent to die.
+
+    Malicious processes are sometimes orphaned and named to make it look like a daemon process ps --ppid 1 -lf
+
+jobs 
+  see background process
+hand
+  send a process to back so can conitnue working while other job works
+<processName> &
+  get the pid
