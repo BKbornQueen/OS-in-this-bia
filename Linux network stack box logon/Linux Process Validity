@@ -19,3 +19,25 @@ hand
   send a process to back so can conitnue working while other job works
 <processName> &
   get the pid
+https://www.baeldung.com/linux/get-process-child-processes
+sauron
+home/orphan
+
+1
+pgrep -P <pid> | wc --lines
+
+orphans have a pid of 1
+  may be listed with orignal pid, and ordered/listed near pid1
+  is adopted by /usr/sbin
+  spawns and dies periodically
+  htop 
+    monitor for orphans and zombies
+    Look at Status/state column 
+      Linux Process States
+      
+    Running or Runnable (R)
+    Uninterruptible Sleep (D)
+    Interruptable Sleep (S)
+    Stopped (T)
+    Zombie (Z)
+
