@@ -1,3 +1,6 @@
+look inside a binary 
+  use the command strings
+
 ps -elf --forest
   show child processes or forked processes
 
