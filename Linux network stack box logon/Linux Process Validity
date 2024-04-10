@@ -10,7 +10,7 @@ in other positions rwx
   elevate to root
   pkill <processname> --signal 9
 
-
+persistence bit manipulation
 
     Persistence - Daemons are services that should run for duration of system operation, since init is parent, would require shutdown for parent to die.
 
