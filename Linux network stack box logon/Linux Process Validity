@@ -44,3 +44,5 @@ orphans have a pid of 1
     Stopped (T)
     Zombie (Z)
 
+xpath -q -e '//port/@portid' output.xml
+xpath -q -e '//host/address/@addr' output.xml
