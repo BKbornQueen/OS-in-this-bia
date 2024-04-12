@@ -120,3 +120,38 @@ PS C:\> Get-Winevent -FilterHashtable @{logname='Security';id='4624'} | ft -Wrap
 gives logged on users
 google event id numbers for specific thing
 
+2.1 Location
+
+They are located in HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\UserAssist\{GUID}\Count\ * they are encoded in ROT13
+
+The GUID represents a particular file extension.
+
+    CEBFF5CD-ACE2-4F4F-9178-9926F41749EA A list of applications, files, links, and other objects that have been accessed
+
+    F4E57C4B-2036-45F0-A9AB-443BCFE33D9F Lists the Shortcut Links used to start programs
+
+
+
+monitoring
+auditing
+\System32\WinEvt\Logs\System.evtx
+security
+NT AUTHORITY\SYSTEM
+SACL
+HKLM\Security\Policy\PolAdtEv
+PsLogList ////section8.2
+strings
+HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs
+ver //// (<#>)
+PS C:\> Get-Childitem -Recurse C:\<fullpathofFile> -ErrorAction Continue | select FullName, LastAccessTime
+C:\Windows\Prefetch
+$R
+$I
+HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\UserAssist\{GUID}\Count\
+ROT13
+security
+system
+-wrap
+	PS C:\windows\system32> net use * http://live.sysinternals.com
+	PS C:\> Z:\strings.exe 'C:\users\andy.dwyer\AppData\Local\Google\Chrome\User Data\Default\History' -accepteula 
+https://www.exploit-db.com/
