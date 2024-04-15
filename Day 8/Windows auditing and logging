@@ -223,3 +223,16 @@ Search the hash not the name to remain stealth
 
 ***If you need to search an infected file you can use notepad++ with regex or strings.exe
 May need to reference FG to download notepad++
+------------------------
+Active Directory
+https://os.cybbh.io/public/os/latest/014_windows_active_directory_enumeration/active_fg.html
+persistence
+windows event logs
+application logs
+event logs
+windows logs
+enabled guest account or other account the manipulate permissions and groups to increase power
+
+
+
+
