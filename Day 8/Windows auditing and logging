@@ -155,3 +155,71 @@ system
 	PS C:\windows\system32> net use * http://live.sysinternals.com
 	PS C:\> Z:\strings.exe 'C:\users\andy.dwyer\AppData\Local\Google\Chrome\User Data\Default\History' -accepteula 
 https://www.exploit-db.com/
+
+
+_____________________
+Volatility
+https://os.cybbh.io/public/os/latest/013_memory_analysis/mem_fg.html
+
+find imagepath
+	.\volatility_2.6_win64_standalone.exe -f ".\cridex.vmem" imageinfo
+then input the command that varies
+
+Volatility syntax to list available plugins for a given profile
+PS C:\Users\andy.dwyer\Desktop\Memory Analysis> .\volatility_2.6_win64_standalone.exe -f ".\cridex.vmem" --profile=WinXPSP2x86 -h 
+	help (-h) syntax to list plugins available for the profile WinXPSP2x86 (--profile=WinXPSP2x86)
+.\volatility_2.6_win64_standalone.exe -f ".\<virusname>.vmem" --profile=WinXPSP2x86 <evaluationCommand>
+Example
+PS C:\Users\andy.dwyer\Desktop\Memory Analysis> .\volatility_2.6_win64_standalone.exe -f ".\cridex.vmem" --profile=WinXPSP2x86 connections 
+5. Volatility Methodology and Beyond
+
+The SANS Institute recommends the following commands when using Volatility.
+
+    Identify Rogue Processes: pslist vs. psscan; output results to a dot file to have a nice visual representation of parent/child process relationships
+
+        Process validity - look for things that are off (misspellings, high PIDs, multiples that shouldn’t be, etc.)
+
+    DLLs and Handles: dlllist, dlldump
+
+    Network Artifacts: connections
+
+    Hunt for Code Injection: malfind
+
+    Check for rootkit: psscan, devicetree
+
+    Dump suspicious processes and drivers: dlldump, procdump, memdump, filescan, svcscan, driverirp
+
+Commands to use
+5.1 Registry Analysis
+
+It is possible to read the registry from the box but a bit more involved. The list below shows plugins and options one may use within Volatility to achieve this.
+
+    hivelist - Shows addresses of hives and filesystem locations
+
+    printkey
+
+        use -o with the virtual offset to show subkeys
+
+        use -K with the location of the registry key you want on the filesystem (note double quotes with this method) "path\to\key"
+
+    hivedump - use -o with virtual offset to recursively list all subkeys
+
+    hashdump - may or may not work, depending
+
+    dumpregistry - Go nuclear. Dumps the whole registry to disk (requires --dump-dir)
+
+Try other plugins to investigate other artifacts mentioned in earlier lectures. Run help in Volatility to see what plugins you have available for use.
+
+File Analysis (using filehash) with VirusTotal
+Search the hash not the name to remain stealth
+
+    Copy filehash
+
+    Go to VirusTotal
+
+    Click on Search
+
+    Paste filehash
+
+***If you need to search an infected file you can use notepad++ with regex or strings.exe
+May need to reference FG to download notepad++
