@@ -1,0 +1,64 @@
+ndis
+netstat -r
+Well Known Ports
+Ephemeral
+name resoultion
+dns
+SID
+/user
+1000
+500
+name,sid
+sid
+backup
+faster
+descriptor
+DACL
+get-acl
+net localgroup
+icalcs
+data execution prevention
+address space layout randomization
+shim
+credential guard
+defender
+sehop
+null
+wrp
+/scannow 
+\WinSxS\Backup
+nslookup
+\System32\drivers\etc\hosts
+DNS servers are queried
+nbtstat
+Red
+Blue
+Incident Response
+procdump
+cmdscan
+driverscan
+imageinfo
+-h
+CPU registers, cache
+cmdscan
+WinXPSP2x86    //// 
+C:\Users\andy.dwyer\Desktop\Memory_Analysis>.\volatility_2.6_win64_standalone.exe -f ".\0zapftis.vmem" imageinfo
+sc query malware ///// .\volatility_2.6_win64_standalone.exe -f ".\0zapftis.vmem" cmdscan
+1a498b8  /////////  .\volatility_2.6_win64_standalone.exe -f ".\0zapftis.vmem" driverscan
+MD5 hash of executable.544.exe: 
+6cee14703054e226e87a963372f767aa
+            cmd
+            certutil -hashfile executable.544.exe MD5
+                output is MD5 hash of executable.544.exe: 
+172.16.98.1:6666  ///// .\volatility_2.6_win64_standalone.exe -f ".\0zapftis.vmem" --profile=WinXPSP2x86 connscan
+
+
+          .\volatility_2.6_win64_standalone.exe -f ".\0zapftis.vmem" pslist
+          Set-MpPreference -ExclusionPath 'C:\Users\andy.dwyer\Desktop\Memory_Analysis\'
+          .\volatility_2.6_win64_standalone.exe -f ".\0zapftis.vmem" --profile=WinXPSP2x86 procdump -p 544 -D .
+           get-filehash .\executable.544.exe
+          .\volatility_2.6_win64_standalone.exe -f ".\0zapftis.vmem" --profile=WinXPSP2x86 pslist
+          .\volatility_2.6_win64_standalone.exe -f ".\0zapftis.vmem" --profile=WinXPSP2x86 pstree
+          cmd
+          certutil -hashfile executable.544.exe MD5
+          
