@@ -109,7 +109,8 @@ Users' files are stored in their corresponding home directory.
 What is the literal path to all home directories on a Windows 10 system?
 C:\Users
 How many properties are available for the get-process cmdlet? Note: Property values only
-
+ get-process | get-member -membertype property | measure-object
+52
 How many aliases does PowerShell have for listing the contents of a directory?
 
 When requesting the help file for the get-process cmdlet, what full command is the 9th example given?
