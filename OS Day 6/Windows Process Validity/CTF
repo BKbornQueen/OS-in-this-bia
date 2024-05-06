@@ -59,3 +59,27 @@ reading a file in windows
 type
 ___________________________
 sysinternals
+
+
+
+
+
+
+
+
+__________________________________________________________________
+Process validity Notes
+programs
+processes
+dll
+modules
+daemons
+  sort by process id (PID)
+looks into the processes home directory first to locate then run the dll
+  ex running from downloads (a different location)
+      run nefarious dlls
+determine if nefarious by analysis of parent process id
+
+_________
+RDP 3389 normal port
+
