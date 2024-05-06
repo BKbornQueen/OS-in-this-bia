@@ -30,6 +30,58 @@ cd to directory C:\Users\Public\Downloads
     libmingwex-0.dll
       scvhost.exe
       29 Hmmmm.txt
+________________________________________________________________________________
+Procexp (sort by process name, then double click rouge process to open properties GUI window)
+  McAfeeFireTray.exe
+    path
+    C:\Program Files\Windows Defender Advanced Threat Protection\McAfeeFireTray.exe
+    autostart location
+    HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\SecureHealth
+    Current Directory
+    C:\Windows\System32\
+TCP	workstation1.vta:56400	10.11.0.202:https	SYN_SENT
+8096				
+4188				
+4032				
+S-1-5-21-135952936-406499825-942129062-1003
+Parent PID 1348
+  open ssh
+________________________________________________________________________________
+McAfeeFireTray.exe
+_______________________________________
+10_4 Keberos
+Autoruns
+  Locate Keberos
+  Right click
+    jump to entry (in registry)
+  Regedit now opens as an administrator
+  navigate to the Keberos folder from here
+    open down
+    open parameters
+      view and analyze contents
+flag- 76aGreX5
+C:\Windows\Kerberos.exe   *****masked as legitimate exe
+    also seen
+    C:\Windows\srvany.exe
+_______________________________________________________________________
+10-5 Totally Legit
+Autoruns-shows absolute path
+  There is malware named TotallyLegit. Find its binary location and there will be a file in that directory. Read the file.
+  C:\Users\Public\Downloads\scvhost.exe  ***** push notifications wpnidm 67553d28
+  Hmmmm.txt
+  libmingwex-0.dll
+  scvhost.exe
+Autoruns
+  right click 
+  jump to image (gui location)
+*****
+navigate to absolute path in PS
+cd C:\
+cd users
+cd public
+cd downloads
+dir
+
 __________________
 Use Sysinternals tool Process Explore to investigate abnormal processes
 ______________------_____________
