@@ -75,12 +75,14 @@ Autoruns
   right click 
   jump to image (gui location)
 *****
-navigate to absolute path in PS
-cd C:\
-cd users
-cd public
-cd downloads
-dir
+                  Navigate to file location
+                  cd C:\Users\Public\Downloads
+                  dir
+                    read the tex file in this location
+                  get-content C:\Users\Public\Downloads\Hmmmm.txt
+                    Flag: GwlkK3sa
+______________________________________________________________________________________
+
 
 __________________
 Use Sysinternals tool Process Explore to investigate abnormal processes
