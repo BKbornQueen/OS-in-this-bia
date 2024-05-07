@@ -85,5 +85,9 @@ read,write *** 3u where u is read and write permissions
 Aragorn,BruceWayne,Eowyn,Tolkien *** htop , process that enters and exits repeatedly, F10 then immediate ps -elf --forest
 /bin/funk *** htop *** then wait for desired process to appear, F10 to quit, then immediate ps -elf --forest
 /bin/netcat -lp 9999 *** ps -elf --forest
+/proc/18381/exe,/usr/sbin/sshd *** ls /proc *** PID for user Bombadil SSHD *** analyze output of ps -elf --forest or sudo lsof -c ssh to retrieve PID ***
+  ***then sudo ls -l /proc/18381 *** you are in the /proc/18381 directory looking at the exe file which its absolute path is /proc/18381/exe *** the symbolic link
+  *** identified by -> is /usr/sbin/sshd
+ntp,19,u *** sudo lsof -c ntp
 
 
