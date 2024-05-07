@@ -1,1 +1,11 @@
-
+Daemons
+  intentionally orphaned process
+  can be used maliciously if disguised properly (obfuscated)
+  will operate with a PPID of 1 which will appear number 
+Could also disable the machine through a DOS attack by maxing out the number of PIDs in use
+  Zombie attack
+Daemons run for the durations of the system being operational as the parent is init
+  init must be shutdown in order for the daemon to die
+Linux services
+  no gui, runs in background 
+  Daemons are services
