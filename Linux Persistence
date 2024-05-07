@@ -11,3 +11,4 @@ Linux services
   Daemons are services
 crontab
 services/daemon
+/etc/inittab
