@@ -68,10 +68,10 @@ strings
 xpath -q -e '//port/@portid' output.xml
 xpath -q -e '//host/address/@addr' output.xml
 
-/sauron
+/sauron   *** /etc/inittab *** configuration_option 90:2345:respawn:/sauron
   /bin/funk
     im rick james zombies 
-thenine zombie
+thenine zombiedir
 home/orphan
   Aragorn,BruceWayne,Eowyn,Tolkien   *** in the home/orphan directory *** is a process that enters and exist repeatedely, no parent adopted by ppid 1
 ___________________________ _________
@@ -89,6 +89,19 @@ Aragorn,BruceWayne,Eowyn,Tolkien *** htop , process that enters and exits repeat
   ***then sudo ls -l /proc/18381 *** you are in the /proc/18381 directory looking at the exe file which its absolute path is /proc/18381/exe *** the symbolic link
   *** identified by -> is /usr/sbin/sshd
 ntp,19,u *** sudo lsof -c ntp *** UDP 10.X.0.7:ntp ***
+/etc/inittab,91:2345:respawn:/bin/netcat -lp 9999  *** look in places of Linux persistence(startup services, startup daemons, runlevels) /etc/inittab
+  *** cd /etc *** dir *** cat inittab *** analyze for suspicious port *** entire line will be the configuration option
 
+/usr/sbin/cron
+ 1344 S    0 root       5811 root       20   0 48760  2800  2404 S  0.0  0.1  0:00.00 │  └─ /usr/sbin/CRON
+ 5811 S 1020 witch_kin  5826 witch_kin  20   0  4276   720   656 S  0.0  0.0  0:00.00 │     └─ /bin/sh -c /home/witch_king/camlindon > /dev/null 2>&1
+ 5826 S 1020 witch_kin  5841 witch_kin  20   0 11128  2848  2656 S  0.0  0.1  0:00.00 │        └─ /bin/bash /home/witch_king/camlindon
+ 5841 S 1020 witch_kin  5857 witch_kin  20   0 11128  2520  2264 S  0.0  0.1  0:00.00 │           └─ /bin/bash /home/witch_king/camlindon
+ 5857 S 1020 witch_kin  6033 witch_kin  20   0  6300  1656  1544 S  0.0  0.1  0:00.00 │              └─ nc -lw10 127.0.0.1 -p 1234
 
-
+  1 S    0 root      18360 root       20   0 37984  4324  3856 S  0.0  0.2  0:00.00 ├─ /lib/systemd/systemd-logind
+    1 S    0 root       1710 root       20   0  6300  1596  1480 S  0.0  0.1  0:00.00 ├─ /bin/netcat -lp 9999
+    1 S    0 root       1709 root       20   0  4028   888   820 S  0.0  0.0  0:01.53 ├─ /sauron
+ 1709 S    0 root       7456 root       20   0  4028   652   588 S  0.0  0.0  0:00.00 │  └─ /usr/local/bin/thenine
+ 7456 S    0 root       7457 root       20   0  4160    72     0 S  0.0  0.0  0:00.00 │     └─ ________Nazgul________
+ 7457 Z    0 root       7458 root       20   0     0     0     0 Z  0.0  0.0  0:00.00 │        └─ thenine
