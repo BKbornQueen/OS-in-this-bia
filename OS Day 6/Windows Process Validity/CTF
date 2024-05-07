@@ -91,7 +91,8 @@ Read the file
 get-content 'C:\Program Files\Windows Defender Advanced Threat Protection\It''s_Here.txt'
     ***** must escape the apostrophe '
 Flag: StrongBad
-
+___________________________________________________________________
+10-7
 
 
 __________________d
@@ -146,4 +147,6 @@ determine if nefarious by analysis of parent process id
 
 _________
 RDP 3389 normal port
+NTP 123 network time protocol normal port
+
 
