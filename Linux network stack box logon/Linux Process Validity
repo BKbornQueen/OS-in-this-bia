@@ -28,6 +28,7 @@ home/orphan
 
 1
 pgrep -P <pid> | wc --lines
+ps -elf --forest | grep <processname>
 
 orphans have a pid of 1
   may be listed with orignal pid, and ordered/listed near pid1
@@ -51,4 +52,6 @@ xpath -q -e '//host/address/@addr' output.xml
 ____________________________________
 CTF
 1
-
+20 *** pgrep -P 1 | wc --lines
+ -p /var/run/ntpd.pid -g -u 105:109   *** ps -elf --forest | grep ntpd
+sshd  *** ps -elf --forest | grep bombadil
