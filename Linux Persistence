@@ -9,3 +9,5 @@ Daemons run for the durations of the system being operational as the parent is i
 Linux services
   no gui, runs in background 
   Daemons are services
+crontab
+services/daemon
