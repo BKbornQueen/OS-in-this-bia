@@ -82,6 +82,16 @@ Autoruns
                   get-content C:\Users\Public\Downloads\Hmmmm.txt
                     Flag: GwlkK3sa
 ______________________________________________________________________________________
+10-6
+cd into the file path location for McAfeeFireTray.exe
+cd 'C:\Program Files\Windows Defender Advanced Threat Protection'
+dir
+  File in this location is "It's_Here.txt"
+Read the file
+get-content 'C:\Program Files\Windows Defender Advanced Threat Protection\It''s_Here.txt'
+    ***** must escape the apostrophe '
+Flag: StrongBad
+
 
 
 __________________d
