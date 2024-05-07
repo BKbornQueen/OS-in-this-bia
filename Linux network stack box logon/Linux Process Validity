@@ -29,7 +29,16 @@ home/orphan
 1
 pgrep -P <pid> | wc --lines
 ps -elf --forest | grep <processname>
-
+sudo lsof -c <processname>
+Interpreting file descriptors (FD column of lsof command) FD example: #r
+  This information and more available in the lsof man page.
+  
+  # - The number in front of flag(s) is the file descriptor number used by the process associated with the file
+    u - File open with Read and Write permission
+    r - File open with Read permission
+    w - File open with Write permission
+    W - File open with Write permission and with Write Lock on entire file
+  mem - Memory mapped file, usually for share library
 orphans have a pid of 1
   may be listed with orignal pid, and ordered/listed near pid1
   is adopted by /usr/sbin
@@ -44,14 +53,37 @@ orphans have a pid of 1
     Interruptable Sleep (S)
     Stopped (T)
     Zombie (Z)
+strings <filepath>
+strings <filename>
+htop
+sudo lsof -P <PPID>
+sudo ls -l /proc/<servicename>
+sudo ls -l /proc/<pid>
+netstat -ano
+sudo lsof -c <servicename>
+strings
+  search binaries and config files for persistence
+  read a file / determine file contents
 
 xpath -q -e '//port/@portid' output.xml
 xpath -q -e '//host/address/@addr' output.xml
 
-
-____________________________________
+/sauron
+  /bin/funk
+    im rick james zombies 
+thenine zombie
+home/orphan
+  Aragorn,BruceWayne,Eowyn,Tolkien   *** in the home/orphan directory *** is a process that enters and exist repeatedely, no parent adopted by ppid 1
+___________________________ _________
 CTF
 1
 20 *** pgrep -P 1 | wc --lines
  -p /var/run/ntpd.pid -g -u 105:109   *** ps -elf --forest | grep ntpd
 sshd  *** ps -elf --forest | grep bombadil
+/run/crond.pid   *** sudo lsof -c cron *** FD column for FD 3ups
+read,write *** 3u where u is read and write permissions
+Aragorn,BruceWayne,Eowyn,Tolkien *** htop , process that enters and exits repeatedly, F10 then immediate ps -elf --forest
+/bin/funk *** htop *** then wait for desired process to appear, F10 to quit, then immediate ps -elf --forest
+/bin/netcat -lp 9999 *** ps -elf --forest
+
+
