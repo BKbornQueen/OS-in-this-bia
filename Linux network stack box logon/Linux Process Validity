@@ -75,7 +75,7 @@ thenine zombie
 home/orphan
   Aragorn,BruceWayne,Eowyn,Tolkien   *** in the home/orphan directory *** is a process that enters and exist repeatedely, no parent adopted by ppid 1
 ___________________________ _________
-CTF
+CTFsud
 1
 20 *** pgrep -P 1 | wc --lines
  -p /var/run/ntpd.pid -g -u 105:109   *** ps -elf --forest | grep ntpd
@@ -88,6 +88,7 @@ Aragorn,BruceWayne,Eowyn,Tolkien *** htop , process that enters and exits repeat
 /proc/18381/exe,/usr/sbin/sshd *** ls /proc *** PID for user Bombadil SSHD *** analyze output of ps -elf --forest or sudo lsof -c ssh to retrieve PID ***
   ***then sudo ls -l /proc/18381 *** you are in the /proc/18381 directory looking at the exe file which its absolute path is /proc/18381/exe *** the symbolic link
   *** identified by -> is /usr/sbin/sshd
-ntp,19,u *** sudo lsof -c ntp
+ntp,19,u *** sudo lsof -c ntp *** UDP 10.X.0.7:ntp ***
+
 
 
