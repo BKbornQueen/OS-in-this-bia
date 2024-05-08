@@ -170,6 +170,11 @@ $R39JR3B,DontTrashMeyo
 	*** Get-Childitem 'C:\$RECYCLE.BIN' -Recurse -Verbose -Force | select FullName
 	*** Get-content 'C:\$RECYCLE.BIN\S-1-5-21-2881336348-3190591231-4063445930-1003\$R*.txt'
 	*** Get-content 'C:\$RECYCLE.BIN\S-1-5-21-2881336348-3190591231-4063445930-1003\$R39JR3B.txt'
+UIDPWD.txt
+	*** jumplists? found using recent docs*
+ 3v3nt_L0g
+	***  Get-EventLog -LogName System -Message *flag* | ft -wrap
+
 _____________________
 Volatility
 https://os.cybbh.io/public/os/latest/013_memory_analysis/mem_fg.html
