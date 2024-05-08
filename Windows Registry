@@ -60,8 +60,276 @@ Flag format: HIVE\SID.........................
 Reminder: All challenges are done using Workstation2.
 
 
+Here is my personal Registry demo:
+
+reg add "hklm\software\microsoft\windows nt\currentversion\image File Execution Options\sethc.exe" /v "Debugger" /t reg_sz /d "c:\Windows\System32\cmd.exe"
+
+Explain net use command
+
+Autoruns.exe
+
+Jump to Entry
+
+Regedit export reg file
+
+new-item "hklm:\software\microsoft\windows nt\currentversion\image File Execution Options\sethc.exe"
+
+New-ItemProperty -path "hklm:\software\microsoft\windows nt\currentversion\image File Execution Options\sethc.exe" -Name Debugger -Type String -Value C:\Windows\System32\cmd.exe
+
+new-psdrive -Name HKU -PSProvider Registry -Root HKEY_USER
+
+Observe Error
+
+gci HKU:
+
+Observe error
+
+remove-psdrive HKU
+
+new-psdrive -Name HKU -PSProvider Registry -Root HKEY_USERS
+Here is Jordan Salyer's Reg Walkthrough
+
+Windows Registry
+
+
+What is it:
+Hierarchical database of critical system configurations.
+
+Registry is the configuration and control mechanism for the Windows Operating system.
+
+Contains system-wide and per-user settings.
+
+
+Contains Keys and Values
+   Handle of Registry Key
+   Key contain Sub-Keys and a collections of Property/Value pairs
+   Much like the Folder/File relationship
+   Values stores data, on/off, and, file paths
+
+Data types
+REG_SZ . String
+REG_BINARY . Binary data
+REG_DWORD . 32 bit integer. Max 7FFF,FFFF or 2,147,483,647.
+REG_LINK . Symbolic links- A link that will take you to the actual location of the data
+REG_MULTI_SZ . Multi-String values- Multiple strings that are terminated with "\0". Example: "abc\0def\0"
+REG_QWORD . 64 bit integer. Max 7FFF,FFFF,FFFF,FFFF or 9,223,372,036,854,775,807.
+
+
+HKLM: Local Machine
+   System related information, SAM, Critical boot/kernel functions, 3rd party software, BCD (Boot Configuration Database), current physical profiles
 
 
 
+DEMO
+
+   Reg query HKLM
+   Gci HKLM:\
+   Why can we do this?
+   Powershell interpretes them as datastores
+   Get-PSProvider
+
+   HKLM and HKCU are mapped by default
+
+
+HKU: Users HKCU (symbolic link to HKU\<sid>) Holds all the users settings and file
+   DEMO
+   Reg HKU
+   SIDs and users…
+   How do we determine SIDs?
+Get-Ciminstance Win32_Useraccount <look for Relative ID>
+   Gci HKU:\
+   Uh oh what happened?
+   Get-PsDrive (You can see we do not have HKU mapped, so we will have to map it.)
+   New-PsDrive -Name HKU -PSProvider Registry -Root HKEY_USERS
+   Gci HKU:\<sid>
+Gci -attributes hidden c:\users\
+
+
+HKCR - Classes Root: Shell COM applications, Contains file extension associations, provides backwards comp,
+Merged - HKLM\Software\Classes and HKCU\Software\Classes
+HKCC - Current Config: Only describes Current hardware configuration different from standard… built on boot alias for HKEY_LOCAL_MACHINE\System\CurrentControlSet\Hardware Profiles\Current.
+
+
+
+Do the hives reside on disk?
+
+HKEY_LOCAL_MACHINE \SYSTEM : \system32\config\system
+HKEY_LOCAL_MACHINE \SAM : \system32\config\sam
+HKEY_LOCAL_MACHINE \SECURITY : \system32\config\security
+HKEY_LOCAL_MACHINE \SOFTWARE : \system32\config\software
+HKEY_USERS \UserProfile :  \winnt\profiles\username
+HKEY_USERS.DEFAULT : \system32\config\default
+
+
+
+
+
+When do changes take place
+
+Changes to Windows System settings require a reboot
+User setting require a login
+Windows Policy Setting don’t require reboot
+Application require a restart
+But it all varies and needs to be tested
+
+
+
+
+Show regedit
+
+Which commands or executables do we have to view and alter the registry?
+
+Regedit
+GUI
+Import and Export hive files
+Remote yes, needs remote registry turned on
+
+Reg.exe
+CLI
+Is it built into CMD or standalone? (Stand alone)
+Resides System32
+Same remote capability
+Different commands (query, add, delete)
+
+Powershell
+
+CLI
+Remote enabled by WinRM and firewall exception
+Remember PowerShell loads as data stores
+
+Open Regedit
+
+New-item HKCU/SOFTWARE/MICROSOFT/WINDOWS/CURRENTVERSION/POLICIES/System
+
+New-itemproperty -path HKCU/SOFTWARE/MICROSOFT/WINDOWS/CURRENTVERSION/POLICIES/System -Name DisableTaskMgr -Value 1 -PropertyType DWORD
+
+Set-Itemproperty -path HKCU/SOFTWARE/MICROSOFT/WINDOWS/CURRENTVERSION/POLICIES/System -Name DisableTaskMgr -value 0
+
+Remove-Item -path  HKCU/SOFTWARE/MICROSOFT/WINDOWS/CURRENTVERSION/POLICIES/System
+
+
+To open regedit as system. (This allows you to see the SAM database)
+
+You can demo opening a regedit as Administrator and looking at HKLM\SAM (you should not see anything under SAM)
+
+
+Open regedit with psexec ( Browse to HKLM\SAM, you should now see items under SAM)
+
+Psexec -s -i regedit
+
+==========Registry==========
+
+#Get-ChildItem - Reads sub keys from the input value
+Get-ChildItem HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion
+
+#Get-Item - Reads the value of the inputted object
+Get-Item HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run#New-Item - Creates a new sub key associated within a hive
+
+#Creates a new sub key in Trusted Documents for document.doc 
+#Be sure to use '-force' 
+New-Item "HKLM:\Software\Microsoft\Office\14.0\Security\Trusted Documents\TrustRecords"
+New-item "HKLM:\Software\Microsoft\Office\14.0\Security\Trusted Documents\TrustRecords" -Force
+
+#New-ItemProperty - Creates a new value associated with a sub key
+New-ItemProperty "HKLM:\Software\Microsoft\Office\14.0\Security\Trusted Documents\TrustRecords" -Name "%USERPROFILE%Downloads/test-document.doc" -PropertyType Binary -Value ([byte[]](0x30,0x31,0xFF))New-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run -Name Test -PropertyType String -Value C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe#Rename-ItemProperty - Modifies a value associated with a sub key
+
+#Rename-ItemProperty - Modifies a value associated with a sub key
+Rename-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\WIndows\CurrentVersion\Run -Name SecurityHealth -NewName Test
+
+#Remove-ItemProperty - Removes a value associated with a sub key
+Remove-ItemProperty -Path "HKLM:\Software\Microsoft\Office\14.0\Security\Trusted Documents\TrustRecords" -Name "%USERPROFILE%Downloads/test-document.doc"
+
+#Set-ItemProperty - Change the value of a sub key
+Set-ItemProperty HKLM:\SOFTWARE\Microsoft\WIndows\CurrentVersion\Run -Name Test -Value Bacon.exe#PSDRIVES
+
+#Use PSDrive to create a Temporary connection to navigate the Registry
+New-PSDrive -Name HKU -PSProvider Registry -Root HKEY_USERS
+
+#PSDrive to a Romote Box Registry
+New-PSDrive -Name "SysInt" -PSProvider FileSystem -Root "\\live.sysinternals.com\Tools"
+
+==========ADS==========
+
+# Create a file 'reminder.txt' with content 'Always try your best'
+echo Always try your best > reminder.txt
+
+# Verify file and content exists
+dir reminder.txt
+type reminder.txt
+
+# Add ADS content 'social security numbers' to reminder.txt
+echo social security numbers > reminder.txt:secret:info
+
+# Verify file and contents again - notice that the ADS 'social security numbers' does not show up.
+dir reminder.txt
+type reminder.txt
+
+# If we are aware of an ADS...we can list its content and show file related information.
+more < reminder.txt:secret.info
+notepad reminder.txt:secret.info
+dir /R reminder.txt
+
+# Some applications/commands are still unable to show ADS content even when you know it is there.
+type reminder.txt:secret.info
+
+#-- Altnerate Data Streams on a Directory --#
+
+# Create a directory 'kids' with ADS content 'top-secret information'
+mkdir kids
+echo top-secret information > kids:hidden.txt
+
+# Verify ADS content
+dir /R
+more < kids:hidden.txt
+
+#---- Creating and Viewing Alternate Data Streams via PowerShell ----#
+
+# Create a file 'reminder.txt' with content 'Always try your best'
+echo "Always do your best" > reminder.txt
+
+# Verify file and content exists
+Get-Childitem reminder.txt
+Get-Content reminder.txt
+
+# Add ADS content 'social security numbers' to reminder.txt
+Set-Content reminder.txt -Value "social security numbers" -Stream secret.info
+
+# Verify file and content exists - we still don't see ADS content
+Get-Childitem reminder.txt
+Get-Content reminder.txt
+
+# Show file streams and list ADS content
+Get-Item reminder.txt -Stream *
+Get-content reminder.txt -Stream secret.info
+
+# Create a file 'test.txt' with content 'Nothing to see here!'
+Write-Output "Nothing to see here!" > test.txt
+
+# Add ADS content sequentially
+Add-Content -Path .\test.txt -Value 'Dim oShell' -Stream 'secret.vbs'
+Add-Content -Path .\test.txt -Value 'Set oShell = Wscript.CreateObject ("Wscript.Shell")' -Stream 'secret.vbs'
+Add-Content -Path .\test.txt -Value 'oShell.run "cmd /k CD C:\Program Files & ping 8.8.8.8" ,1 , true ' -Stream 'secret.vbs'
+
+# Verify file and contents - Nothing has changed visibly
+Get-Content .\test.txt
+Get-Content .\test.txt -Stream secret.vbs
+
+#---- Execute Malicious Alternate Data Stream ----#
+
+# Execute Script contained in ADS content
+wscript .\test.txt:secret.vbs
+
+#-- From CMD.exe --#
+
+# Run 'Certutil' to check the hash of the file.
+Certutil -hashfile test.txt MD5
+
+# Open ADS content in notepad and make changes.
+notepad test.txt:secret.vbs
+##add any text to the file and save it##
+MORE < test.txt:secret.vbs
+
+# Rerun Certutil - notice the MD5 hash doesn't change.
+Certutil -hashfile test.txt MD5
 
 
