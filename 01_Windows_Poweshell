@@ -264,3 +264,450 @@ Semi-Persistent Session
 $s1= New-PSSession -ComputerName file-server 
 Invoke-Command -session $s1 {hostname}
 
+
+#Powershell 
+
+# USE PowerShell Integrated Scripting Environment (ISE) 
+###################################
+#1. Basic Powershell Concepts
+
+###################################
+#1.1 Commands and Arguments
+Verb-Nown
+get-process (singular)
+NOT 
+get-processes
+
+cd C:\Users\student\Desktop
+Get-ChildItem
+New-Item C:\Users\student\Desktop\content.txt
+Set-Content C:\Users\student\Desktop\content.txt "This is the way"
+# Display the contents of the file
+Get-Content -Path "C:\Users\student\Desktop\content.txt"     
+                      
+# Display current Variables
+Get-Variable                                                                          
+# List the PowerShell verbs
+Get-Verb                                                                             
+# Use the Method Start to open notepad.exe
+Start-Process Notepad.exe  
+# Use the Method Stop to close notepad.exe                    
+Stop-Process notepad
+
+# List the PowerShell cmdlets
+Get-Command 
+
+###################################
+#1.6 Pipelining
+#Objects in Powershell are passed along in pipes (|) based off their input cmdlets
+
+# Display Properties and Methods of Get-LocalUser cmdlet
+Get-LocalUser | Get-Member      
+
+# Properties = what we know
+# Methods    = what we can do
+
+# previous example with creating content.txt
+Get-ChildItem C:\Users\student\Desktop\content.txt | Get-Member
+
+#1.3 Powershell Object Properties
+
+# Return the single property of 'name' of every process                    
+(get-process).name
+(Get-Process).Name                             
+
+# Display the Get-Process Properties of 'Name, ID, Path' for every process                           
+Get-Process | Select-Object Name, ID, path     
+
+                                                                   
+# Get cmdlets and display them in order
+Get-Command -Type Cmdlet | Sort-Object -Property Noun | Format-Table    
+
+# Check out how to format
+Get-Help Format-Table
+Get-Help Format-List
+
+# Get commands in a module
+Get-Command -Module Microsoft.PowerShell.Security, Microsoft.PowerShell.Utility -GroupBy Noun    
+###################################
+###################################
+#1.2 Powershell Help
+
+# Display help about a PowerShell cmdlet
+Get-Help <cmdlet>  
+                                               
+# Display help for Get-Process cmdlet
+Get-Help get-process  
+                                            
+# Open a web browser and display help for the Get-Process cmdlet on the Microsoft website
+Get-Help get-process -online                                      
+man get-process
+man get-process -detailed
+man get-process -full
+
+# Display history of commands in current window
+Get-History 
+# Display present working directory 
+Get-Location
+     # similar to PWD on Linux, gl is the alias         
+get-alias gl
+get-alias dir
+get-alias ls
+
+###################################
+
+
+#1.4 Using the Methods of Objects
+
+# Display all objects with Method in their name from the results from Get-Member of the Get-Process cmdlet
+Get-Process | Get-Member | Where-Object {$_.Membertype -match "Method"}  
+# Open an instance of calculator     
+Start-Process calc 
+# Stop a named process using a method                             
+(Get-Process calculator*).kill()                
+# Same as above
+Stop-Process -name calculator*                  
+##################################
+#1.5 Pipelined Variables
+
+# List all the processes with a PID lower than 1000
+Get-Process | Select-Object Name, ID, path | Where-object {$_.ID -lt '1000'}            
+# Count the list of all the processes with a PID lower than 1000
+(Get-Process | Select-Object Name, ID, path | Where-object {$_.ID -lt '1000'}).count    
+#####################################
+#####################################
+#2.7 PowerShell Comparison Operators
+
+get-help about_comparison_operators
+# Take the output from Get-Service and looks for Status property of Stopped and list those Services
+Get-Service | Where-Object {$_.Status -eq "Stopped"}            
+# Same as above
+Get-Service | where Status -eq "Stopped"   
+# Lists Processes that have Greater Than 1000 Handles                     
+Get-Process | Where-Object -Property Handles -GE -Value 1000    
+# Same as above
+Get-Process | where Handles -GE 1000                            
+####################################
+####################################
+#2.8 Commenting in PowerShell
+ 
+Get-Process | select -first 10 # This is how to do head in PS
+
+<# I could
+also write a book
+IF I really wanted
+to #>
+
+####################################
+#1.7 CIM Classes
+
+#Common Information Model 
+#Think of CIM class as place holder and CIM instance as an actual event.
+# WMI is deprecated 
+
+# List all CIM Classes
+Get-Cimclass *                                                                  
+# List the antispywareproduct class from the root/security instance
+Get-CimInstance –Namespace root\securitycenter2 –ClassName antispywareproduct 
+# Show properties and methods for this Instance  
+Get-CimInstance -ClassName Win32_LogicalDisk -Filter “DriveType=3” | gm    
+# Use the Windows Management Instrumentation method     
+Get-WmiObject -Class Win32_LogicalDisk -Filter “DriveType=3”                    
+
+# Query Win32_Bios
+Get-CimInstance -class Win32_BIOS                      
+# same output but deprecated command
+Get-WmiObject -Class Win32_BIOS                        
+#######################################
+#######################################
+#2.3 PowerShell Variables
+# unit of memory to store all types of values
+
+# Display names without the preceding <$>
+Get-Variable                
+      
+# Create the MyVariable with 1,2,3
+$MyVariable = 1, 2, 3, "dingo"    
+
+# Delete the value of a Variable
+Clear-Variable -Name MyVariable   
+
+# Delete the Variable
+Remove-Variable -Name MyVariable  
+
+#Variable with command results
+# Create a Variable with the results of Get-Process
+$Processes = Get-Process  
+ 
+# Create a combined Date/Time variable from the results of Get-Date       
+$Today = (Get-Date).DateTime      
+
+#To view a variable’s object type, use Get-Member
+$PSHome | Get-Member              # Displays System.String with it's objects and properties
+$A=12                             # Creating A with an integer
+$A | Get-Member                   # Displays System.Int32
+
+#2.3.2 Automatic Variables
+Get-Help about_automatic_variables
+
+#2.1 PowerShell Loops
+
+Get-Help about_For
+Get-Help about_Foreach
+Get-Help about_While
+Get-Help about_Do
+
+#2.1.2 For Loop
+# for this (as long as it's true)...
+
+ #Initial placeholder 
+    # Example:  $num = 1
+ #Condition Placeholder
+    #Example: $num -lt 10
+ #Statement List Placeholder
+    #Example: "I count $num "
+ #Repeat Placeholder
+    #Example: $num++
+
+for ($num = 1 ; $num -le 10 ; $num++){"I count $num"}
+##################################
+$array = ("apples", "dingos", "bananana", "ananas")
+for($i = 0; $i -lt $array.length; $i++){ $array[$i] }
+##################################
+##################################
+#2.1.3 Foreach Loop  
+# (iterating) a series of values in a collection of items.
+##################################
+$letteroftheDayArray = "a","b","c","d"
+foreach ($letter in $letteroftheDayArray)
+{
+  Write-Host $letter
+}
+##################################
+
+foreach ($file in Get-ChildItem)
+{
+  Write-Host $file, "|", $file.CreationTime
+}
+#2.1.4 While Loop
+$val=0
+while($val -ne 3)
+{
+    $val++
+    Write-Host $val
+}
+##################################
+##################################
+#2.1.1 Do Loop
+# two primary types -- while and until
+##################################
+#---while---
+$x = 1,2,78,0
+
+do { $count++; $a++ } while ($x[$a] -ne 0)
+$count
+#---until--- (always runs at least once)
+$x = 1,2,78,0
+do { $count++; $a++; } until ($x[$a] -eq 0)
+$count
+##################################
+##################################
+#2.1.5 Loops Combined
+for ($i = 1; $i -le 5; $i++) { Write-Host $i }
+
+foreach ($i in Get-Alias) { Write-Host $i.name }
+$i = 14
+
+while ($i -gt 7) {
+     Write-Host $i
+     $i-=1
+}
+$i = 1
+do
+{
+     Write-Host $i
+     $i+=1
+} while ($i -lt 7)
+##################################
+##################################
+#2.2 PowerShell Conditions  (if--elseif--else)
+if ($a -gt 2) {
+    Write-Host "The value $a is greater than 2."
+}
+elseif ($a -eq 2) {
+    Write-Host "The value $a is equal to 2."
+}
+else {
+    Write-Host ("The value $a is less than 2 or" +
+        " was not created or initialized..."+
+        "or you didn't count for something")
+}
+##################################
+##################################
+#2.4 PowerShell Arrays 
+$A = 22,5,10,8,12,9,80
+echo $A
+##################################
+$b= 1..9
+echo $b
+##################################
+foreach ($element in $b) {
+  $element
+}
+##################################
+# Print every other
+for ($i = 0; $i -le ($b.length - 1); $i += 2) {
+  $b[$i]
+}
+##################################
+# Print until a condition is met
+$i=0
+while($i -lt 4) {
+  $b[$i];
+  $i++
+}
+##################################
+##################################
+#2.1.6 Error Messaging
+# Display errors in red
+Remove-Item does_not_exist.txt                                         
+# Hide any errors
+Remove-Item does_not_exist.txt -ErrorAction SilentlyContinue           
+
+# Create a new file called 'it_exists.txt'
+New-Item -Type File it_exists.txt   
+# Return a message notifying that it was deleted                                   
+Remove-Item it_exists.txt -Verbose                                     
+##################################
+##################################
+#2.5 PowerShell Functions
+Get-Help about_Functions                                      # Displays the help about Functions
+Get-Help about_Functions_Advanced                             # Displays some more in-depth help about Functions
+Function Do-Stuff { Get-Date; Get-Process; Get-Service }      # Creates a Function with 'Get-Date, Get-Process, Get-Service' inside of it
+Do-Stuff |where Status -eq "Running"                          # Runs the Function
+##################################
+##################################
+#2.6 PowerShell Execution Policy
+# Security concern, scripts can contain a host of malicious information
+# PS uses .ps1 files to save and run PS cmds as a script
+# By default policy is RESTRICTED not allowing scripts not created locally to run
+# HENCE, we require specific permissions and validation prior to execution.
+
+# List all of the Scopes and ExecutionPolicies on the system
+Get-ExecutionPolicy -list                                             
+# Get the current user's ExecutionPolicy
+Get-ExecutionPolicy    
+# Sets the ExecutionPolicy for the CurrentUser to Unrestricted                                               
+Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser  
+
+#3. PowerShell Profiles
+# Convenient way to store PowerShell configuration information 
+# as well as personalized aliases and functions to persistent use in every PowerShell session.
+$Profile
+
+#3.1 PowerShell Profile Paths
+$PsHome         # Stores the installation directory for PowerShell
+$Home           # Stores the current user’s home directory
+
+# Display the profile values of Names, MemberType, and Paths.
+$profile | Get-Member -Type NoteProperty 
+# Display the same results but completed in case it was cut off '...'                       
+$Profile | get-member -type noteproperty | ft -wrap 
+
+# Narrowed results to display only Names            
+$PROFILE | Get-Member -MemberType noteproperty | select name    
+# ^^ all not case sensitive
+
+##################################
+#3.2 Creating A PowerShell Profile
+# Create a $Profile for the CurrentUser. Force is used to ignore any errors.
+New-Item -ItemType File -Path $profile -Force    
+# Open your newly created $Profile, which is empty             
+ISE $profile                                                  
+
+# Test if inidvidual profiles were created
+Test-Path -Path $profile.currentUsercurrentHost
+Test-Path -Path $profile.currentUserAllHosts
+Test-Path -Path $profile.AllUsersAllHosts
+Test-Path -Path $profile.AllUserscurrentHost
+
+#close the PowerShell window and you will be required to recreate the same PowerShell aliases.
+New-Alias -Name DemUsers -Value Get-LocalUser
+
+#################################################
+# you can create functions  ***********
+function Color-Console {
+  $Host.ui.rawui.backgroundcolor = "black"
+  $Host.ui.rawui.foregroundcolor = "green"
+  $hosttime = (Get-ChildItem -Path $PSHOME\PowerShell.exe).CreationTime
+  $hostversion="$($Host.Version.Major)`.$($Host.Version.Minor)"
+  $Host.UI.RawUI.WindowTitle = "PowerShell $hostversion ($hosttime)"
+  Clear-Host
+}
+Color-Console
+##################################################
+#you can start a transcript of all your commands that have been run
+start-transcript
+# Pipe to out-null so users don't see that commands are being recorded
+start-transcript | out-null                       
+# Starts to log commands into the c:\mywork.txt file
+Start-Transcript C:\MyWork.txt                    
+# Run get-service command and inputs that and the results into the transcript.
+Get-Service                                       
+# End the transcript
+Stop-Transcript   
+# View the contents of the created transcript                                
+notepad c:\MyWork.txt                             
+
+#4. Windows Remoting
+# uses the Window Remote Management Protocol (WinRM) and 
+# Web Services Management (WS-Man) to manage these communications.
+
+# When the sessions have 2 different versions of PowerShell, the session will default to the lower version. 
+# This can limit the cmdlets you have available.
+# be aware of this
+
+########################################
+# Displays permissions
+Get-PSSessionConfiguration                        
+# query current network profiles
+Get-ChildItem 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Profiles'   
+########################################
+#4.1 PowerShell Remoting Security
+# WinRM uses Kerberos for authentication by default.
+# encrypts all comms with AES-256 symmetric keys
+# Uses ports 5985 for HTTP by default or 5986 for HTTPS.
+########################################
+# Displays the WinRM configuration
+winrm get winrm/config  
+        # notice HTTPS Port 5986 and blank trusted hosts
+# If you are outside of a Active Directory Domain then you have two options: 
+# HTTPS or adding the host to the Trusted Hosts file
+# Query trusted hosts
+Get-Item WSMan:\localhost\client\TrustedHosts  
+# Adding a single item to TrustedHosts
+Set-Item WSMan:\localhost\Client\TrustedHosts -Value "File-Server"
+# Adding multiple items                              
+Set-Item WSMan:\localhost\Client\TrustedHosts -Value "File-Server,Domain-Controll,Workstation2" 
+# Appends the Value instead of changing it
+Set-Item WSMan:\localhost\Client\TrustedHosts -Value "workstation2" -Concatenate                    
+####################################
+####################################
+#5. Remoting commands
+# PSRemoting consists of two separate concepts: Temporary and Persistent Sessions.
+# Concentrating on Temporary sessions
+####################################
+#5.1 Temporary Sessions
+
+# Invoke-Command can be used to automate command execution across a domain 
+# using both temporary and new-sessions.
+
+# Creates 1-to-1 Temporary Session
+Invoke-Command -ComputerName File-Server {Get-Service | where Status -eq "Running"} 
+# Running a Temporary Session as a Job        
+Invoke-Command -ComputerName File-Server,Domain-Controll,Workstation2 {Get-Service} -asjob  
+# Displays the job's Results
+Receive-Job 2                                                                               
+
+# DEFENCE AND OFFFENCE
+
