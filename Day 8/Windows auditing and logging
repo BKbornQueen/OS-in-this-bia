@@ -143,12 +143,13 @@ HKLM\Security\Policy\PolAdtEv
 PsLogList ////section8.2
 strings
 HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs
-ver //// (<#>)
-PS C:\> Get-Childitem -Recurse C:\<fullpathofFile> -ErrorAction Continue | select FullName, LastAccessTime
+1803 ***ver //// (<#>) based on the build number look on the windows chart (google or FG) for the 4 digit build number
+PS C:\> Get-Childitem -Recurse C:\<AbsolutePathOfFile> -ErrorAction Continue | select FullName, LastAccessTime
+	*** /etc/hosts absolute file path is C:\Windows\System32\Drivers\etc\hosts
 C:\Windows\Prefetch
 $R
 $I
-HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\UserAssist\{GUID}\Count\
+CEBFF5CD *** use sans cheat sheet or google it *** HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\UserAssist\{GUID}\Count\
 ROT13
 security
 system
