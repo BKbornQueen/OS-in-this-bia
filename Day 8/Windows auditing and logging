@@ -3,6 +3,8 @@ FG
 https://os.cybbh.io/public/os/latest/011_windows_auditing_&_logging/artifacts_fg.html
 
 sans.org resource learning guides
+O'Reilly *** mwr library
+	windows internals
 
 PS C:\> Get-LocalUser | select Name,SID 
 PS C:\> Get-WmiObject win32_useraccount | select name,sid
@@ -153,11 +155,16 @@ CEBFF5CD *** use sans cheat sheet or google it *** HKEY_CURRENT_USER\Software\Mi
 ROT13
 security
 system
--wrap
+-wrap *** format-table -wrap ***
 	PS C:\windows\system32> net use * http://live.sysinternals.com
 	PS C:\> Z:\strings.exe 'C:\users\andy.dwyer\AppData\Local\Google\Chrome\User Data\Default\History' -accepteula 
 https://www.exploit-db.com/
-
+Flag, Found A.
+	*** PS C:\> Get-Item 'Registry::\HKEY_USERS\*\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs\.*'
+	*** PS C:\> Get-Item "REGISTRY::HKEY_USERS\*\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs\.txt" | select -Expand property | ForEach-Object { [System.Text.Encoding]::Default.GetString((Get-ItemProperty -Path "REGISTRY::HKEY_USERS\*\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs\.txt" -Name $_).$_)}  
+	*** cd to location of file then cat to screen  *** analyze list of words ***
+/
+BAD_INTENTIONS.EXE-8F2806FC.pf  *** cd inot C:\Windows\Prefetch *** then dir and visual analyze the data
 
 _____________________
 Volatility
