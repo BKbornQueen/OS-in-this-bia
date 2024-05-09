@@ -1,0 +1,11 @@
+scaninfo
+type="syn"
+5424
+4
+8
+0
+kernel messages
+8
+emergency,alert,critical,error,warning
+notice,informational,debug
+mail,
