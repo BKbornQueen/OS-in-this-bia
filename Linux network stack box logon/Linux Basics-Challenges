@@ -43,6 +43,7 @@ Search the man pages for the keyword digest. Then, use one of the binaries liste
 The resulting hash is the flag.
 man -k digest
 echo OneWayBestWay | sha512sum
+a81bc463469ee1717fc9e388e3799c653f63a3de5e9496b5707b56488b046cbf75665235d316c5c0053a597dc7d40c917a2d9006fe35e9cb47766c05ac71989b
 
 
 Use File: /home/garviel/Encrypted
@@ -110,12 +111,29 @@ Answer:Traitor
 
 Identify all members of the lodge group. List their names in alphabetical order with a comma in between each name.
 Flag Format: name,name,name
-
+aximand,erebus,ezekyle,garviel,sejanus,tarik
+  *** grep 'lodge' /etc/group ***
+__________________________________________________________________________________________________
+Linux Basic Permissions1
+/media/Bibliotheca  *** find / -type d -name 'Bibliotheca' 2> /dev/null ***
+_______________________
+Linux Basic Permissions2
+flag: 7  ***  ls -l  /media/Bibliotheca/ ***
+____________________________
+user with unique login
+flag: nobody
+  *** $logins *** analyze the gecos column
 ___________________________________________________________________________________________________
 https://stackoverflow.com/questions/48446896/do-cat-foo-txt-my-cmd-and-my-cmd-foo-txt-accomplish-the-same-thing
 
 pipe vs stdin vs stdout
 piping vs redirection
+_________________
+
+______________
+list groups a user belongs to 
+id -G -n <username>
+grep -w <username> /etc/group
 ___________________________________________________________________________________________________
 Linux Basics Reformat4
 0
