@@ -8,4 +8,7 @@ kernel messages
 8
 emergency,alert,critical,error,warning
 notice,informational,debug
-mail,
+mail,clock,ntp,notice
+auth,autpriv,8,10.30.0.1
+yes
+0,7,udp
