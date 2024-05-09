@@ -129,7 +129,13 @@ https://stackoverflow.com/questions/48446896/do-cat-foo-txt-my-cmd-and-my-cmd-fo
 pipe vs stdin vs stdout
 piping vs redirection
 _________________
-
+ugo 
+owner -200
+grep 'chapter' /etc/group
+cd /media/Bibliotheca/
+dir
+find ./ -type f -perm -200 -user mephiston
+... -exec ls -l {}\:
 ______________
 list groups a user belongs to 
 id -G -n <username>
