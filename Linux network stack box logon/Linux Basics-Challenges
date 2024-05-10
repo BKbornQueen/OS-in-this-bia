@@ -129,18 +129,53 @@ https://stackoverflow.com/questions/48446896/do-cat-foo-txt-my-cmd-and-my-cmd-fo
 pipe vs stdin vs stdout
 piping vs redirection
 _________________
-ugo 
-owner -200
-grep 'chapter' /etc/group
-cd /media/Bibliotheca/
-dir
-find ./ -type f -perm -200 -user mephiston
-... -exec ls -l {}\:
+Linux Basic Permissions 4 UGO
+modifiable(write permisions -2) file by only a specific user therefore: user must be the owner of the file
+  owner -200
+grep 'chapter' /etc/group *** identify the users in within the group ***
+grep 'lodge' /etc/group *** identify the users in within the group ***
+cd /media/Bibliotheca/ *** cd into the desired location ***
+find ./ -type f -perm -200
+find ./ -type f -perm -200 -user mephiston *** find anywhere beggining at the root of the directory any file with the ugo user permissions set to write indicating they are the owner of the file for a specific user
+find ./ -type f -perm -200 -user mephiston-exec ls -l {} \; *** execute a long listing of all matches print entire line
 ______________
 list groups a user belongs to 
 id -G -n <username>
 grep -w <username> /etc/group
 ___________________________________________________________________________________________________
+linux perm 5
+Codex_Hereticus
+_____________
+linux perm 5
+flag: GHOSTS
+find ./ -type f -perm -220
+ find ./ -type f -perm -200 -group guardsmen -exec ls -l {} \;
+cd Bibliotheca_quattuor
+ sudo cat Tactica_Imperium   *** sudo cat to the screen the file
+analyze lines of code for answer
+____________________
+perm 7
+flag: execute
+___________
+perm 8
+find ./ -type f -perm -200 -user Quixos -exec ls -l {} \;
+list all users and search for a user
+  compgen -u | grep Quixos
+  cat /etc/passwd | grep Quixos
+All of these would be the typical search route, however this user is hidden, A manual search/parse is required
+ls -lisa /media/Bibliotheca/
+  ls -lisa /media/Bibliotheca/Bibliotheca_duo/
+flag: /media/Bibliotheca/Bibliotheca_duo/Codex_Hereticus
+_______________
+perm 9
+flag: Expand your mind
+ cat /media/Bibliotheca/Bibliotheca_duo/.Secrets_of_the_Immaterium
+_________________
+
+
+
+
+
 Linux Basics Reformat4
 0
 This challenge is worth 0 POINTS, and should only be attempted after all other challenges that are open to you, are completed!
