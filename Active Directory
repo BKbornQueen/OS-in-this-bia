@@ -5,3 +5,8 @@ persistence
   permissions
 volatility executeable
 
+_________________
+21-1004336348-1177238915-682003330
+get-adgroup
+get-aduser -filter*
+Search-ADAccount
