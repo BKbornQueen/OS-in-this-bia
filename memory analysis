@@ -61,4 +61,4 @@ MD5 hash of executable.544.exe:
           .\volatility_2.6_win64_standalone.exe -f ".\0zapftis.vmem" --profile=WinXPSP2x86 pstree
           cmd
           certutil -hashfile executable.544.exe MD5
-          
+ systernals option -accepteula means to accept the end user licensing agreement, its necessary for executeables such as .\strings.exe which does not have a gui but will not work without accepting the end license agreement         
