@@ -60,6 +60,190 @@ Flag format: HIVE\SID.........................
 Reminder: All challenges are done using Workstation2.
 
 
+
+
+
+
+
+
+///////
+PS C:\> Get-Item "REGISTRY::HKEY_USERS\*\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs\.txt" | select -Expand property | ForEach-Object { [System.Text.Encoding]::Default.GetString((Get-ItemProperty -Path "REGISTRY::HKEY_USERS\*\Software\Microsof\Windows\CurrentVersion\Explorer\RecentDocs\.txt"
+C : \ U s e r s \ s t u d e n t \ D o c u m e n t s \ 3 - 1 4 - 2 4 . t x t
+PS C:\> cd users
+PS C:\users> cd student
+PS C:\users\student> cd documents
+PS C:\users\student\documents> dir      
+ Directory: C:\users\student\documents
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        2/23/2022  10:01 PM            864 3-14-24.txt
+-a----        4/26/2024   9:07 PM            116 UIDPWD.txt
+
+
+PS C:\users\student\documents> hostname
+Workstation2
+
+PS C:\> Get-Item "REGISTRY::HKEY_USERS\*\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs\.txt" | select -Expand property | ForEach-Object { [System.Text.Encoding]::Default.GetString((Get-ItemProperty -Path "REGISTRY::HKEY_USERPS C:\> cd \                                                                                                                                                                                                                                    PS C:\> Get-Childitem -Recurse C:\Users\*\AppData\Roaming\Microsoft\Windows\Recent -ErrorAction Continue | select FullNaPS C:\> Get-Childitem -Recurse C:\Users\*\AppData\Roaming\Microsoft\Windows\Recent -ErrorAction Continue | select FullNaPS C:\> Get-Childitem -Recurse C:\Users\*\AppData\Roaming\Microsoft\Windows\Recent -ErrorAction Continue | select FullNaPS C:\> Get-Childitem -Recurse C:\Users\*\AppData\Roaming\Microsoft\Windows\Recent -ErrorAction Continue | select FullNaPS C:\> Get-Childitem -Recurse C:\Users\*\AppData\Roaming\Microsoft\Windows\Recent -ErrorAction Continue | select FullNaPS C:\> Get-Childitem -Recurse C:\Users\*\AppData\Roaming\Microsoft\Windows\Recent -ErrorAction Continue | select FullNaPS C:\> Get-Content 'C:\$RECYCLE.BIN\S-1-5-21-2881336348-3190591231-4063445930-1003\$R39JR3B.txt'                       PS C:\> Get-Item "REGISTRY::HKEY_USERS\*\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs\.txt" | select -Expand property | ForEach-Object {                                                                                       >>     [System.Text.Encoding]::Default.GetString((Get-ItemProperty -Path "REGISTRY::HKEY_USERS\*\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs\.txt" -Name $_).$_)                                                              PS C:\> Get-Item 'Registry::\HKEY_USERS\*\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs\.*'                                                                                                                                                                                                                                                                                                                                                                                     PS C:\> Get-Item HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+
+
+    Hive: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion
+
+
+Name                           Property
+----                           --------
+Run                            SecurityHealth : C:\Program Files\Windows Defender\MSASCuiL.exe
+                               Kaspersky      : C:\malware.exe
+
+
+PS C:\> Get-Item HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+
+
+    Hive: HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion
+
+
+Name                           Property
+----                           --------
+Run                            OneDrive : "C:\Users\andy.dwyer\AppData\Local\Microsoft\OneDrive\OneDrive.exe"
+                               /background
+
+PS HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion> get-item run
+
+
+    Hive: HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion
+
+
+Name                           Property
+----                           --------
+run                            OneDrive : "C:\Users\andy.dwyer\AppData\Local\Microsoft\OneDrive\OneDrive.exe"
+                               /background
+
+
+PS HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion> Set-Location HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+PS HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run> dir
+PS HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run> cd..
+PS HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion> dir
+
+
+    Hive: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion
+
+
+Name                           Property
+----                           --------
+AccountPicture
+ActionCenter
+AdvertisingInfo                Enabled : 0
+App Management
+App Paths
+AppHost                        EnableWebContentEvaluation : 1
+Applets
+-----truncated
+PS HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion> exit
+
+andy.dwyer@WORKSTATION2 C:\Users\andy.dwyer>Reg Query HKLM\System\CurrentcontrolSet\enum\usbstor
+
+HKEY_LOCAL_MACHINE\System\CurrentcontrolSet\enum\usbstor
+    SanDisk9834    REG_SZ    bad
+
+-----
+PS C:\> set-location HKLM:\SOFTWARE\Microsoft
+PS HKLM:\SOFTWARE\Microsoft> dir
+
+PS HKLM:\SOFTWARE\Microsoft> cd '.\Windows NT\'
+PS HKLM:\SOFTWARE\Microsoft\Windows NT\> cd .\CurrentVersion\
+PS HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\> cd .\NetworkList\
+PS HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\> dir
+
+
+    Hive: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList
+
+
+Name                           Property
+----                           --------
+DefaultMediaCost               3G       : 2
+------truncated
+
+PS HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\> cd .\Profiles\
+PS HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Profiles\> dir
+
+
+    Hive: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Profiles
+
+
+Name                           Property
+----                           --------
+{20A9DB9D-5643-46F7-9FC7-0C382 ProfileName       : Terror_cafe_network
+A286301}                       Description       : Network
+                               Managed           : 0
+                               Category          : 1
+------ Truncated
+
+
+PS HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Profiles\> cd ..
+PS HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList> cd ..
+PS HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion> dir
+
+
+    Hive: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion
+
+
+Name                           Property
+----                           --------
+Accessibility
+AdaptiveDisplayBrightness
+AeDebug                        UserDebuggerHotKey : 0
+-----Truncated
+
+
+
+PS HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion> cd .\ProfileList\
+PS HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList\> dir
+
+
+    Hive: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList
+
+
+Name                           Property
+----                           --------
+S-1-5-18                       Flags            : 12
+                               ProfileImagePath : C:\windows\system32\config\systemprofile
+                               RefCount         : 1
+                               Sid              : {1, 1, 0, 0...}
+                               State            : 0
+S-1-5-19                       Flags            : 0
+                               ProfileImagePath : C:\windows\ServiceProfiles\LocalService
+                               State            : 0
+S-1-5-20                       Flags            : 0
+                               ProfileImagePath : C:\windows\ServiceProfiles\NetworkService
+                               State            : 0
+S-1-5-21-2881336348-3190591231 ProfileImagePath                        : C:\Users\Admin
+-4063445930-1000               Flags                                   : 0
+                               FullProfile                             : 1
+                               State                                   : 0
+                               Sid                                     : {1, 5, 0, 0...}
+                               ProfileAttemptedProfileDownloadTimeLow  : 0
+                               ProfileAttemptedProfileDownloadTimeHigh : 0
+                               ProfileLoadTimeLow                      : 0
+                               ProfileLoadTimeHigh                     : 0
+S-1-5-21-2881336348-3190591231 ProfileImagePath                        : Hacker_McHackerson
+-4063445930-1002               Flags                                   : 0
+                               FullProfile                             : 1
+                               State                                   : 19204
+                               Sid                                     : {1, 5, 0, 0...}
+                               ProfileAttemptedProfileDownloadTimeLow  : 0
+                               ProfileAttemptedProfileDownloadTimeHigh : 0
+                               ProfileLoadTimeLow                      : 0
+                               ProfileLoadTimeHigh                     : 0
+S-1-5-21-2881336348-3190591231 ProfileImagePath                        : Hacker_McHackerson
+-4063445930-1002.bak           Flags                                   : 0
+                               FullProfile                             : 1
+                               State                                   : 33024
+--------Truncated
+
+
+
+
 Here is my personal Registry demo:
 
 reg add "hklm\software\microsoft\windows nt\currentversion\image File Execution Options\sethc.exe" /v "Debugger" /t reg_sz /d "c:\Windows\System32\cmd.exe"
