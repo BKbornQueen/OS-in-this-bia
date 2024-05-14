@@ -125,7 +125,8 @@ type
 ___________________________
 sysinternals
 
-
+netstat
+  6666 non standard malware port
 
 
 
@@ -149,4 +150,10 @@ _________
 RDP 3389 normal port
 NTP 123 network time protocol normal port
 
+Windows Basic services
+sc
+sc.exe query state=all
+get-service
+HKLM\SYSTEM\CurrentControlSet\Services 
+parameters
 
