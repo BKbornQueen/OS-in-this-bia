@@ -1,0 +1,66 @@
+sigcheck
+asinvoker
+requireAdministrator
+HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System
+asinvoker
+
+
+
+
+
+
+
+
+
+PS C:\> history
+
+  Id CommandLine
+  -- -----------
+   1 Get-EventLog | ft -wrap | findstr /i "flag"
+   2 Get-EventLog | ft -wrap
+   3 Get-EventLog -Logname System | ft -wrap
+   4 Get-EventLog | ft -wrap | findstr /i "flag"
+   5 Get-EventLog -LogName System -Message *flag*
+   6 Get-EventLog -LogName System -Message *flag* | ft -wrap
+   7 Get-EventLog | ft -wrap | Select-String /i "flag"
+   8 Get-EventLog -LogName System -Message *flag* | ft -wrap
+   9 hostname
+  10 cd users
+  11 cd ctf
+  12 cd .\Desktop\
+  13 dir
+  14 cd .\CTF\
+  15 dir
+  16 cat words.txt | Sort-Object -Descending | Select-Object -First 21
+  17 (cat .\words2.txt | Sort-Object -Unique).length
+  18 (cat .\words.txt | Sort-Object -Unique).length
+  19 (cat .\words.txt | Sort-Object -Unique).Length
+  20 (Get-Process | Get-Member -MemberType Method).Length
+  21 cd..
+  22 cd..
+  23 dir
+  24 cd .\Music\
+  25 (gci).Length
+  26 cd ..
+  27 dir
+  28 cd .\Desktop\
+  29 dir
+  30 cd .\CTF\
+  31 dir
+  32 (cat .\words.txt | Select-String z,a) | Measure-Object
+  33 Get-Content .\words.txt | Select-String gaab
+  34 Get-Content .\words.txt | Select-String "az"
+  35 Get-Content .\words.txt | Select-String "az" | Measure-Object
+  36 Get-Content .\words.txt | Select-String "aa" | Measure-Object
+  37 Get-Content .\words.txt | Select-String "aa"
+  38 Get-Content .\words.txt | Select-String "aa[a-g]"
+  39 Get-Content .\words.txt | Select-String "aa[a-g]"  | Measure-Object
+  40 cd\
+  41 $PROFILE.allusersallhosts
+  42 ipconfig /all
+  43 hostname
+  44 Set-Location HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System 
+  flag 0x1337
+  flag ConsentPromptBehaviorAdmin
+  flag NiceJob last uac
+  
