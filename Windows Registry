@@ -241,6 +241,28 @@ S-1-5-21-2881336348-3190591231 ProfileImagePath                        : Hacker_
                                State                                   : 33024
 --------Truncated
 
+for specific user
+hive key is
+HKU
+must query on the SID
+student SID is 1003
+run flag is C:\botnet.exe
+runonce flag is C:\worm.exe
+
+reg query from cmd
+reg query HKU
+wmic useraccount get name,sid
+reg query HKEY_USERS\S-1-5-21-2881336348-3190591231-4063445930-1003\software\microsoft\windows\currentversion\run
+reg query HKEY_USERS\S-1-5-21-2881336348-3190591231-4063445930-1003\software\microsoft\windows\currentversion\runonce
+
+
+
+
+
+
+
+
+
 
 
 
