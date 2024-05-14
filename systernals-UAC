@@ -64,3 +64,182 @@ PS C:\> history
   flag ConsentPromptBehaviorAdmin
   flag NiceJob last uac
   
+PS C:\Users\student\Desktop\SysinternalsSuite> .\handle spoolsv.exe
+flag is  C:\Windows\System32\en-US\spoolsv.exe.mui
+spoolsv.exe pid: 2200 NT AUTHORITY\SYSTEM
+   44: File  (RW-)   C:\Windows\System32
+   74: File  (R-D)   C:\Windows\System32\en-US\spoolsv.exe.mui
+  1F0: File  (R-D)   C:\Windows\System32\en-US\usbmon.dll.mui
+  37C: File  (R-D)   C:\Windows\System32\en-US\localspl.dll.mui
+  514: File  (R-D)   C:\Windows\System32\en-US\WSDMon.dll.mui
+  524: Section       \BaseNamedObjects\__ComCatalogCache__
+  538: Section       \BaseNamedObjects\__ComCatalogCache__
+  554: File  (R-D)   C:\Windows\System32\en-US\KernelBase.dll.mui
+  60C: File  (R-D)   C:\Windows\System32\en-US\win32spl.dll.mui
+  630: File  (R-D)   C:\Windows\System32\en-US\inetpp.dll.mui
+  66C: File  (R-D)   C:\Windows\System32\en-US\FXSRESM.dll.mui
+  694: File  (RWD)   C:\Windows\System32\spool\drivers\x64\PCC
+  6AC: File  (RWD)   C:\Windows\System32\spool\drivers\W32X86\PCC
+  6B0: File  (RWD)   C:\Windows\System32\spool\drivers\W32X86\PCC
+  6BC: File  (RWD)   C:\Windows\System32\spool\drivers\x64\PCC
+  6D4: File  (RWD)   C:\Windows\System32\spool\drivers\x64\PCC
+  6D8: File  (RWD)   C:\Windows\System32\spool\drivers\x64\PCC
+  6DC: File  (RWD)   C:\Windows\System32\spool\drivers\x64\PCC
+  6E8: File  (RWD)   C:\Windows\System32\spool\drivers\x64\PCC
+
+PS C:\Users\student\Desktop\SysinternalsSuite> history
+
+  Id CommandLine
+  -- -----------
+   1 net use * http://live.sysinternals.com
+   2 z:
+   3 dir
+   4 cd c
+   5 cd c:\
+   6 cd users
+   7 cd public
+   8 cd downloads
+   9 dir
+  10 strings scvhost.exe
+  11 get-help strings
+  12 get-help strings
+  13 get-help strings -Examples
+  14 get-help about_strings -Examples
+  15 strings -a scvhost.exe
+  16 strings -a \scvhost.exe
+  17 Cd \
+  18 strings -a C:\Users\Public\Downloads\Scvhosts.exe
+  19 strings -a C:\Users\Public\Downloads\scvhost.exe
+  20 cd users
+  21 dir
+  22 cd public
+  23 dir
+  24 cd downloads
+  25 dir
+  26 strings -a scvhost.exe
+  27 cd \
+  28 .\strings -a C:\Users\Public\Downloads\scvhost.exe
+  29 dir
+  30 cd users
+  31 dir
+  32 cd student
+  33 dir
+  34 cd desktop
+  35 dir
+  36 cd \
+  37 cd users
+  38 dir
+  39 cd admin
+  40 dir
+  41 cd desktop
+  42 dir
+  43 dir
+  44 dir
+  45 ls
+  46 cd \
+  47 cd users
+  48 cd public
+  49 dir
+  50 cd ..
+  51 dir
+  52 cd admin
+  53 dir
+  54 cd \desktop
+  55 cd desktop
+  56 dir
+  57 get-childitem
+  58 cd ..
+  59 cd ..
+  60 cd users
+  61 cd student
+  62 cd deskstop
+  63 dir
+  64 cd desktop
+  65 dir
+  66 cd unziptools
+  67 dir
+  68 cd sysinternalssuite.zip
+  69 cd \
+  70 cd C:\users\student\desktop\unziptools\SysinternalsSuite.zip
+  71 cd Z:\
+  72 dir
+  73 .\strings -a C:\Users\Public\Downloads\scvhost.exe
+  74 dir C:\Users\Public\Downloads
+  75 get-content C:\Users\Public\Downloads\Hmmmm.txt
+  76 c:\
+  77 cd C:\
+  78 dir
+  79 cd Program Files
+  80 cd 'C:\Program Files\'
+  81 dir
+  82 cd '.\Windows Defender Advanced Threat Protection\'
+  83 dir
+  84 get-content C:\Users\Public\Downloads\Hmmmm.txt
+  85 strings -a C:\Program Files\Windows Defender Advanced Threat Protection
+  86 cd z:\
+  87 get-content 'C:\Program Files\Windows Defender Advanced Threat Protection\It''s_Here.txt'
+  88 psservice spoolsv.exe
+  89 get-help about_psservice
+  90 get-help psservice
+  91 get-help about_psservice_query
+  92 psservice \\computer
+  93 .\psservice \\computer
+  94 cd c:\
+  95 whereis NT Servicce
+  96 whereis NT Service
+  97 find Trustedinstaller
+  98 whereis Trustedinstaller
+  99 find
+ 100 find "TrustedInstaller"
+ 101 get-help find
+ 102 whereis service.exe
+ 103 find-module NT Service
+ 104 whereis "NT Service\TrustedInstaller"
+ 105 Find-PackageProvideraca
+ 106 Find-Package "NT Service\TrustedInstaller"
+ 107 icacls
+ 108 hostname
+ 109 cd windows
+ 110 cd system32
+ 111 cd drivers
+ 112 cd etc
+ 113 cd services
+ 114 dir
+ 115 dir /s spoolv.exe
+ 116 cd..
+ 117 dir /s spoolv.exe
+ 118 dir -r spoolv.exe
+ 119 dir -r spoolsv.exe
+ 120 cd C:\
+ 121 dir -r spoolsv.exe
+ 122 accessenum spoolsv.exe
+ 123 .\accessenum spoolsv.exe
+ 124 cd .\Users\student\Desktop\SysinternalsSuite\
+ 125 .\accesschk.exe C:\Windows\System32\spoolsv.exe
+ 126 cd \
+ 127 handle -a C:\Windows\System32\spoolsv.exe
+ 128 .\handle -a C:\Windows\System32\spoolsv.exe
+ 129 cd C:\Users\student\Desktop\SysinternalsSuite\
+ 130 .\handle -a C:\Windows\System32\spoolsv.exe
+ 131 dir
+ 132 .\handle  C:\Windows\System32\spoolsv.exe
+ 133 .\handle  C:\Windows\System32\s\
+ 134 .\handle  C:\Windows\System32\conhost.exe
+ 135 .\handle
+ 136 .\handle  C:\Windows\
+ 137 .\handle  C:\Windows\System32\
+ 138 \
+ 139 .\handle  C:\Windows\System32\spoolsv.exe
+ 140 .\handle  C:\Windows\System32\s
+ 141 .\handle  C:\Windows\System32\sp
+ 142 .\handle spoolsv.exe
+
+Loadorder
+find loadorder group using systernals MPSSVC is the microsoft Defender service name
+PS C:\Users\student\Desktop\SysinternalsSuite> .\LoadOrd.exe
+  Flag is NetworkProvider
+listdlls
+PS C:\Users\student\Desktop\SysinternalsSuite> .\Listdlls.exe winlogon.exe
+  Flag is ntdll
+Get-NetFirewallProfile
+  flag is Disable
