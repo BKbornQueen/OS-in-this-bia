@@ -202,4 +202,11 @@ _________________
 get-adgroup
 get-aduser -filter*
 Search-ADAccount
+Krause,page *** Search-ADAccount -AccountExpired 
+ashleymadison.com
+   *** Get-ADUser -properties * -filter {emailaddress -notlike "*@mail.mil"} | select name, emailaddress
+    *** /// find all AD emails Get-ADUser -filter * -properties name, EmailAddress, DisplayName | Select Name, EmailAddress, Displayname
+lulz.pdf
+14287.pdf
 
+ibarra,lee
