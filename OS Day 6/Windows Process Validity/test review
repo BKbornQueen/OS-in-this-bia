@@ -105,4 +105,7 @@ smphost
 services
   dependencies and load order group
 
-
+garviel@terra:~$ cat /etc/passwd | cut -d: -f1| sort -u > test3
+garviel@terra:~$ comm test3 Target.sorted
+        - Seek out these individuals and terminate them at all costs lest the empire will fall
+more paths
