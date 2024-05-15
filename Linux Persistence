@@ -12,3 +12,21 @@ Linux services
 crontab
 services/daemon
 /etc/inittab
+
+______________________
+sysv /etc/init 
+run level 3 contents
+                  init tab -- persistence
+                  rc-- persistence
+
+systemD 
+targets
+symbolic links
+
+                  /etc/environment  ---- persistence
+                  /etc/profile --- persistence
+                  .bash_profile .=hidden
+show the runlevel
+  /sbin/runlevel
+
+view the sbin
