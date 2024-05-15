@@ -1,0 +1,108 @@
+/bin binaries and executeable should not be running outside of this location bin or sbin
+/etc 
+  cron jobs cannot change into the directories
+  use cat or sudo cat or sudo ls
+
+linux boot
+big mike got killed in russion
+  persistence
+    runlevel
+      what is needed to boot up
+      the process will start at bootup
+sysv
+  /etc/inittab /etc/init.d/rc /etc/rc#.d/
+sysd /=
+ /etc/systemd
+
+linux process validity
+  kernel permission
+   file permission
+  suid
+  guid
+  sgid
+  sticky bit person created can delete
+
+system calls
+  process access kernel resources outside of the kernel space
+
+fork bomb
+
+orphan process
+  parent left child remain adopted by sbin/init
+all daemons are orphans
+not all orphans are daemons
+
+job control
+
+cron jobs
+  survive reboot
+  persistance
+    ls -d /etc/cron   system
+  var/spool/cron/crontabs user
+crontab -e
+
+
+
+rsyslog enumerate daemons
+
+methods of powershell objects
+
+powershell basics
+powershell profiles
+    persisistence
+      order of precedence and their path location
+      current user, current host
+      current
+      all user, all hosts
+
+cim instances
+cim classes
+how windows groups similiar objects
+
+Registry
+
+run keys
+
+baselining
+  ppid
+  where service is running from
+  mispelled
+  one vs l
+  suspicious port
+
+on linux
+  high pid but should low pid
+ should not have a low pid but does
+what is determined as a low pid- baseline of bootloaded pid is depenedent on what is loaded onto the system it varies system to system
+
+system32
+  nefarious or abnormal applications running from system32
+  or a system32 process operating outside of system32
+
+sudo netstat -anob
+nestat -ano
+htop
+
+
+linux uac
+  limits privileges for application
+    asinvoker
+    requireadministrator
+    highest available
+
+Linux will be command line only
+
+windows will have a gui
+  systernals use it
+  autruns
+  procexp
+  procmon
+
+schtasks
+  autoruns
+registry run keys
+smphost
+services
+  dependencies and load order group
+
+
