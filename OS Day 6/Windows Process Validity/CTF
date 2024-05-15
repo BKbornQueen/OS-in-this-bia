@@ -156,4 +156,6 @@ sc.exe query state=all
 get-service
 HKLM\SYSTEM\CurrentControlSet\Services 
 parameters
+get-service Totally-Legit | Sort-Object name,Displayname
+  Flag is Legit
 
