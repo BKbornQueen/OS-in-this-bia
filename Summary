@@ -444,12 +444,6 @@ USER ASSIST  ROT 13(NEEDS TO DECODE IT)
 BAM -PRETTY EASY, SUS PATHS NOT SYS32, MAYBE PUBLIC/DOWNLOADS
 
 
-10.50.22.130  >>>>Windows
-
-10.50.27.127 >>>>>linux
-
-Stack 1
-
 
 PS C:\windows\system32> net use * http://live.sysinternals.com
 
