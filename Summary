@@ -172,23 +172,12 @@ Get-localuser | select name,sid
 
  Reg query “HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList”
                          #####gives the hive and attached SID#####
-xfreerdp /u:student /v:10.50.36.208 /dynamic-resolution +glyph-cache +clipboard
-     ########COMMAND TO GET IN THE WINDOWS SHELL#########
-
-http://10.50.22.197:8000/register#####ip that gets me to the challenges####
-      ####username : BRKA-M-502######
-      ####password : MSFVENOM$$lauramu080897#######
 
 
-https://vta.cybbh.space/project/instances/#####gets me to instances#####
-#######username: bruno.kavutse58#######
-#######password: MSFVENOM$$lauramu080897#######
 
 
-xfreerdp /u:student /v:10.50.24.183 /dynamic-resolution +glyph-cache +clipboard
-     ########RDP command to get to me to the_ADMIN_STATION#########
-     #############Stack number = 1###################################
-     ################IP ADDRESS = 10.50.24.183#####################
+
+
 
 
 The default file path for the init program is " /usr/sbin/init " but it can be changed by the kernel boot parameter as " init=/path/to/init_program ". " /usr/sbin/init " is symlinked to " /lib/systemd/systemd " after Debian 8 Jessie
